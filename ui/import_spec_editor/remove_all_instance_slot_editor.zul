@@ -1,0 +1,48 @@
+<?script src="/js/jquery-3.5.1.min.js" ?>
+<zk>
+	<div id="removeAllInstanceSlotEditorDiv" style="margin:10px;" apply="com.enterprise_architecture.essential.importutility.ui.editors.RemoveAllInstanceSlotEditorComposer">
+		<vlayout spacing="15px">
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Slot Name"/>
+				</div>
+				<div hflex="15">
+					<listbox hflex="1" id="slotNameListBox" rows="1"  mold="select"/>
+					<!--  <textbox id="slotNameTxtBox"  hflex="1"/>  -->
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Conditional Columns"/>
+				</div>
+				<div hflex="15" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Enter the columns that this slot is dependant upon"/>
+				</div>
+			</hlayout>
+			<vlayout spacing = "10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Column Reference"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<textbox id="condColumnTxtBox"  width="150px"/>
+							<button id="addCondRefBtn" width="90px"  label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Dependant Columns"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<listbox style="font-size:9pt;" id="conditionalRefListBox" rows="3" width="150px"/>
+							<button id="delCondRefBtn" width="90px"  label="Delete Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+	</div>
+</zk>

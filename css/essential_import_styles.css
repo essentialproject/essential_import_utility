@@ -1,0 +1,460 @@
+/*V2.0 NEW STYLES*/
+
+@import url('fonts/source-sans/source-sans-pro.css');
+
+*{
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif!important;
+}
+
+body{
+	color: #333;
+	padding: 0;
+	height: calc(100vh - 60px)!important;
+}
+
+th, td {vertical-align: top;}
+
+.fontLight {font-weight: 300}
+.fontSemi {font-weight: 600;}
+.strong,.bold {font-weight: 700;}
+.fontBlack {font-weight: 900;}
+
+.italic {font-style: italic;}
+
+.xsmall{font-size: 85%}
+.small{font-size: 90%}
+.large{font-size: 125%}
+.xlarge{font-size: 150%}
+.xxlarge {font-size: 200%;}
+
+.text-lightgrey {
+	color: #ccc;
+}
+
+.text-primary {
+	color: #C3193C;
+}
+
+.clear,.clearfix{
+	clear: both;
+}
+
+.top-5{
+	margin-top: 5px;
+}
+
+.top-10{
+	margin-top: 10px;
+}
+
+.top-15{
+	margin-top: 15px;
+}
+
+.top-20{
+	margin-top: 20px;
+}
+
+.top-30{
+	margin-top: 30px;
+}
+
+.bottom-5{
+	margin-bottom: 5px;
+}
+
+.bottom-10{
+	margin-bottom: 10px;
+}
+
+.bottom-15{
+	margin-bottom: 15px;
+}
+
+.bottom-20{
+	margin-bottom: 20px;
+}
+
+.bottom-30{
+	margin-bottom: 30px;
+}
+
+.right-5{
+	margin-right: 5px;
+}
+
+.right-10{
+	margin-right: 10px;
+}
+
+.right-15{
+	margin-right: 15px;
+}
+
+.right-20{
+	margin-right: 20px;
+}
+
+.right-30{
+	margin-right: 30px;
+}
+
+.left-5{
+	margin-left: 5px;
+}
+
+.left-10{
+	margin-left: 10px;
+}
+
+.left-15{
+	margin-left: 15px;
+}
+
+.left-20{
+	margin-left: 20px;
+}
+
+.left-30{
+	margin-left: 30px;
+}
+
+.bg-offwhite {
+	background-color: #f6f6f6;
+}
+
+select {
+	margin-left: 1px;
+}
+
+.headerLogo{
+	height: 40px;
+	background: url(../img/essential_project_logo_2016.png) no-repeat left center;
+	float: left;
+	width: 50%;
+	margin-bottom: 10px;
+	background-size: auto 40px;
+}
+
+.eas-stripes{
+	background-image: url(../img/eas_stripes.png);
+	width: 100%;
+	height: 5px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left:0;
+	z-index: 9999;
+}
+
+.header-divider {
+	width: 100%;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	top: 60px;
+	margin-bottom: 10px;
+	left:0;
+	z-index: 9999;
+	background-color: #eee;
+}
+
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #C3193C;
+    border-color: #660D1F;
+    color: #fff;
+}
+.btn-primary:hover {
+	background-color: #E31D46;
+	color: #fff;
+}
+
+.btn-secondary,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus {
+    background-color: #0C71C3;
+    border-color: #063B66;
+    color: #fff;
+}
+.btn-secondary:hover {
+	background-color: #0E7BD5;
+	color: #fff;
+}
+
+
+.panel-noborder {
+	border: 0!important;
+}
+
+.panel-noborder > .panel-body {
+	padding: 0!important;
+}
+
+.importSpecEditorWrapper {
+	height: calc(100vh - 200px);
+}
+
+/*Ends*/
+
+/*ZK Overides*/
+[class^="z-icon-"], [class*=" z-icon-"], input[type="checkbox"] {
+	font-family: ZK85Icons,FontAwesome!important;
+}
+
+.z-window {
+	background-color: #fff;
+	padding: 0 10px 10px 10px;
+}
+.z-window-content {padding: 8px;}
+
+.z-window-header {
+	color: #C3193C;
+	font-size: 200%;
+	font-weight: 300;
+	padding: 8px;
+	line-height: 1.1em;
+}
+
+.z-messagebox {
+	word-break: normal;
+	-webkit-hyphens: none;
+}
+
+.z-window-icon {
+	top: -10px;
+	right: -10px;
+	position: relative;
+}
+
+.z-column,.z-columns-bar,.z-listheader,.z-listhead-bar {
+	background-color: #0C71C3;
+	border-left: 1px solid #063B66;
+	border-bottom: 1px solid #063B66;
+}
+
+
+.z-listheader-content, .z-listcell-content, .z-listgroup-content, .z-listgroupfoot-content, .z-listfooter-content {
+	font-size: 14px!important;
+	padding: 6px 8px;
+}
+
+
+a, .z-tab-selected .z-tab-text,.z-tab-selected .z-tab-text:hover {
+	color: #0C71C3;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #1094FF;
+}
+
+.z-textbox, .z-decimalbox, .z-intbox, .z-longbox, .z-doublebox {
+	padding: 8px 4px 8px 4px;
+	font-size: 14px;
+}
+
+.z-button {
+	box-shadow: none!important;
+}
+
+.z-loading-indicator {
+	border: 1px solid #ddd;
+	box-shadow: 1px 1px 4px #ccc; 
+}
+
+.z-listbox-emptybody {
+	min-height: 150px;
+}
+
+.z-north-body, .z-south-body, .z-west-body, .z-center-body, .z-east-body {
+	padding: 0px!important;	
+}
+
+.z-combobox > *{
+	margin: 0px;
+	font-size: 14px;
+}
+
+.z-treecol-content, .z-treecell-content, .z-treefooter-content {
+	font-size: 14px;
+	line-height: 14px;
+	padding: 8px 16px;
+}
+
+a[disabled="disabled"] {
+	color: #ddd!important;
+	cursor: default!important;
+}
+
+.z-dottree-spacer {
+	margin-right: 12px;
+}
+
+/*Ends ZK Overides*/
+
+
+.headerContainer{
+	clear: both;
+}
+
+
+.headerRightLinks{
+	height: 40px;
+	text-align: right;
+	margin-top:5px;
+}
+
+.headerRightLinks a{
+	color: #0171c0;
+	text-decoration: none;
+}
+
+.headerRightLinks a:hover{
+	color: #666666;
+}
+
+.footerContainer{
+	margin-top: 10px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.footerLeft{
+	width: 60%;
+	float: left;
+}
+
+.footerRight{
+	width: 40%;
+	float: right;
+	text-align: right;
+}
+
+.footerLink{
+	color: #0171c0;
+	text-decoration: none;
+}
+
+.footerLink:hover{
+	color: #666666;
+}
+
+.pageLabel{
+	font-size: 175%;
+}
+
+.sectionLabel{
+	font-size: 150%;
+	color: #c3193c;
+}
+
+.loginLeft {
+	width:50%;
+	box-sizing: border-box;
+	padding: 20px;
+	float: left;
+	height: calc(100vh - 170px);
+	background: url(../img/239H.jpg) no-repeat center center;
+	background-size: 200%;
+	border: 1px solid #ccc;
+}
+
+.loginRight {
+	width:50%;
+	height: calc(100vh - 170px);
+	float: left;
+	padding: 20px;
+	box-sizing: border-box;
+	background-color: #F4F6F9;
+	border: 1px solid #ccc;
+}
+
+
+
+/*Setup text colours*/
+
+.textColour1{
+	color: #c3193c;
+}
+
+.textColour2{
+	color: #d6771c;
+}
+
+.textColour3{
+	color: #42284f;
+}
+
+.textColour4{
+	color: #0171c0;
+}
+
+.textColour5{
+	color: #333;
+}
+
+.textColour6{
+	color: #777;
+}
+
+.textColour7{
+	color: #fff;
+}
+
+.textColour8{
+	color: #a9c66f;
+}
+
+.textColour9{
+	color: #6593c8;
+}
+
+.backColour1{
+	background-color: #c3193c;
+}
+
+.div.z-column-cnt,
+div.z-row-cnt,
+div.z-listbox-header th.z-listheader,
+div.z-listbox-header th.z-auxheader,
+div.z-listfooter-cnt,
+div.z-listcell-cnt,
+div.z-listheader-cnt,
+td.z-listgroup-inner div.z-listcell-cnt,
+.z-menubar-hor .z-menu,
+.z-menubar-hor .z-menu-item,
+.z-menubar-hor .z-menu-btn,
+.z-menubar-hor .z-menu-item-btn,
+.z-menubar-hor span,
+.z-menubar-hor a,
+.z-menubar-hor div,
+.z-menubar-ver .z-menu,
+.z-menubar-ver .z-menu-item,
+.z-menubar-ver .z-menu-btn,
+.z-menubar-ver .z-menu-item-btn,
+.z-menubar-ver span,
+.z-menubar-ver a,
+.z-menubar-ver div,
+.z-menu-cnt,
+.z-menu-item-cnt,
+.z-paging-os .z-paging-os-cnt,
+.z-paging-os .z-paging-os-seld,
+.z-paging-inp,
+.z-paging input.z-paging-inp,
+.z-paging-info,
+.z-paging div.z-paging-info{
+}
+
+
+.z-listitem.z-listitem-selected > .z-listcell {
+    background: #c3e6ff;
+}
+
+.panel-drag-button {
+	display: none;
+}

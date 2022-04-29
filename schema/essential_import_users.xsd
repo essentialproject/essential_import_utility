@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    xmlns:us="http://www.enterprise-architecture.org/essential/importutility/users"
+    targetNamespace="http://www.enterprise-architecture.org/essential/importutility/users">
+  <xs:element name="EssentialImportUserData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="us:Role"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="us:User"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Role">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RoleName" type="xs:string"/>
+        <xs:element name="RoleDescription" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="User">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Firstname" type="xs:string"/>
+        <xs:element name="Surname" type="xs:string"/>
+        <xs:element name="Email" type="xs:string"/>
+        <xs:element name="Password" type="xs:string"/>
+        <xs:element name="Role" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

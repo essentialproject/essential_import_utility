@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  xmlns:cm="http://www.enterprise-architecture.org/essential/importutility/common"
+  targetNamespace="http://www.enterprise-architecture.org/essential/importutility/common">
+  <xs:complexType name="DerivedValue">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element ref="cm:DerivedValueString"/>
+      <xs:element ref="cm:DerivedValueRef"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="DerivedValueString">
+    <xs:complexType mixed="true">
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DerivedValueRef">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="preDelimiter" type="xs:string"/>
+          <xs:attribute name="postDelimiter" type="xs:string"/>
+          <xs:attribute name="sequenceNo" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DerivedInstance" type="cm:DerivedInstanceType"/>
+  <xs:element name="DeleteDerivedInstance" type="cm:DeleteDerivedInstanceType"/>
+  <xs:element name="VariableName" type="xs:string"/>
+  <xs:element name="ClassName" type="xs:string"/>
+  <xs:element name="DerivedName" type="cm:DerivedValue"/>
+  <xs:element name="DerivedExtID" type="cm:DerivedValue"/>
+  <xs:complexType name="DerivedInstanceType">
+    <xs:sequence>
+      <xs:element ref="cm:VariableName"/>
+      <xs:element ref="cm:ClassName"/>
+      <xs:element ref="cm:DerivedName"/>
+      <xs:element ref="cm:DerivedExtID"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="cm:InstanceSlot"/>
+        <xs:element ref="cm:RemoveInstanceSlot"/>
+        <xs:element ref="cm:DeleteInstanceSlot"/>
+        <xs:element ref="cm:RemoveAllInstanceSlot"/>
+        <xs:element ref="cm:DeleteAllInstanceSlot"/>
+        <xs:element ref="cm:SimpleSlot"/>
+        <xs:element ref="cm:DerivedSimpleSlot"/>
+        <xs:element ref="cm:PrimitiveSlot"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="sequenceNo" type="xs:integer"/>
+    <xs:attribute name="matchingMode" use="required" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="DeleteDerivedInstanceType">
+    <xs:sequence>
+      <xs:element ref="cm:ClassName"/>
+      <xs:element ref="cm:DerivedName"/>
+      <xs:element ref="cm:DerivedExtID"/>
+    </xs:sequence>
+    <xs:attribute name="sequenceNo" type="xs:integer"/>
+    <xs:attribute name="matchingMode" use="required" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="SimpleInstanceType">
+    <xs:sequence>
+      <xs:element ref="cm:VariableName"/>
+      <xs:element ref="cm:ClassName"/>
+      <xs:element ref="cm:NameRef"/>
+      <xs:element ref="cm:ExtIDRef"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="cm:InstanceSlot"/>
+        <xs:element ref="cm:RemoveInstanceSlot"/>
+        <xs:element ref="cm:DeleteInstanceSlot"/>
+        <xs:element ref="cm:RemoveAllInstanceSlot"/>
+        <xs:element ref="cm:DeleteAllInstanceSlot"/>
+        <xs:element ref="cm:SimpleSlot"/>
+        <xs:element ref="cm:DerivedSimpleSlot"/>
+        <xs:element ref="cm:PrimitiveSlot"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="sequenceNo" type="xs:integer"/>
+    <xs:attribute name="matchingMode" use="required" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="DeleteSimpleInstanceType">
+    <xs:sequence>
+      <xs:element ref="cm:ClassName"/>
+      <xs:element ref="cm:NameRef"/>
+      <xs:element ref="cm:ExtIDRef"/>
+    </xs:sequence>
+    <xs:attribute name="sequenceNo" type="xs:integer"/>
+    <xs:attribute name="matchingMode" use="required" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="SimpleInstance" type="cm:SimpleInstanceType"/>
+  <xs:element name="DeleteSimpleInstance" type="cm:DeleteSimpleInstanceType"/>
+  <xs:element name="NameRef" type="xs:string"/>
+  <xs:element name="ExtIDRef" type="xs:string"/>
+  <xs:element name="DerivedSimpleSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element ref="cm:DerivedSlotValue"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConditionalRef" type="xs:string"/>
+  <xs:element name="DerivedSlotValue" type="cm:DerivedValue"/>
+  <xs:element name="PrimitiveSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element ref="cm:SlotValueRef"/>
+        <xs:element ref="cm:PrimitiveSlotType"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrimitiveSlotType" type="xs:string"/>
+  <xs:element name="SimpleSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element ref="cm:SlotValueRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SlotValueRef" type="xs:string"/>
+  <xs:element name="InstanceSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element ref="cm:InstanceSlotVar"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveInstanceSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element ref="cm:InstanceSlotVar"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteInstanceSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element ref="cm:InstanceSlotVar"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAllInstanceSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAllInstanceSlot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cm:SlotName"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cm:ConditionalRef"/>
+      </xs:sequence>
+      <xs:attribute name="sequenceNo" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InstanceSlotVar" type="xs:string"/>
+  <xs:element name="SlotName" type="xs:string"/>
+</xs:schema>

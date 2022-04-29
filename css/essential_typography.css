@@ -1,0 +1,75 @@
+/*Setup default font size*/
+body {font-size: 75%; color: #333; -webkit-text-size-adjust: none;}
+
+/*Setup common text elements*/
+
+p {	margin: 0 0 5px;}
+
+a:hover { text-decoration: underline; }
+.noUL:hover   {text-decoration:none;}
+ul { list-style-type: none; margin: 0 1.5em 0.75em 0.25em;
+}
+ol { list-style-type: decimal;
+	margin: 0 1.5em 1.5em;
+}
+ul li { line-height: 1.4; 	background-image: url(../images/bullet.gif); background-repeat: no-repeat; background-position: 0px 6px; padding-left: 1.25em; }
+ul li .starBullet	{  line-height: 1.4; padding-left: 1.5em; background: url(../images/starbullet.png) no-repeat 0 1px;}
+dl { margin: 0 0 1.5em 0; }
+dl dt { font-weight: bold; }
+dl dd { margin-left: 1.5em; }
+
+abbr, acronym { border-bottom: 1px dotted #000; }
+address { margin-top: 1.5em; font-style: italic; }
+del { color: #000; }
+
+blockquote { margin: 1.5em; }
+strong { font-weight: bold;}
+em, dfn { font-style: italic; }
+dfn { font-weight: bold; }
+pre, code { margin: 1.5em 0; white-space: pre; }
+pre, code, tt { font: 1em monospace; line-height: 1.5; } 
+tt { display: block; margin: 1.5em 0; line-height: 1.5; }
+hr	{margin: 20px 0;}
+
+/*Setup Form Styles*/
+.form_searchbox	{color: #fff; position: relative; bottom: 5px;}
+.form_searchbox input	{color: #aaaaaa; height: 22px; width: 177px; padding-left: 25px; border: none;}
+.form_searchbox input.searchbox	{background: transparent url(../images/searchbox.png) no-repeat;}
+.form_searchbox input.searchbox:focus	{outline: none;}
+select	{position:relative;margin-top:-2px;}
+
+/*Setup Site Headers*/
+.siteHeaderRightLink a {color: #444}
+.pageFooterLabel	{text-align: center; font-size: 90%;}
+
+.siteTitleRightLinkText	{color: #fff; font-size: 125%; font-weight: 300;}
+.siteTitleRightLink a	{color: #fff;}
+
+#viewName	{font-size: 200%; font-weight: 300; letter-spacing: 1px;}
+#viewSubTitle	{font-size: 175%; font-weight: 300; letter-spacing: 1px;}
+#altViewName {letter-spacing: 1px;}
+
+/*Setup Highlights and Lowlights*/
+.xsmall	{font-size: 85%;}
+.small 	{font-size: 90%;}
+.large 	{font-size: 125%;}
+.xlarge {font-size: 150%;}
+.subtitle  {font-size: 225%;}
+.impact	{font-weight: bold; text-transform: uppercase;}
+.normal	{font-weight: normal;}
+.light	{font-weight: 300;}
+.smallandlight	{font-size: 85%; font-weight: 300;}
+.uppercase	{text-transform: uppercase;}
+
+/*Setup component filter section (ability to show/hide elements on a page)*/
+#componentFilterKeyLabel	{font-weight: bold; font-size: 90%;}
+.componentFilterElementLabel a	{color: #333; font-size: 90%; display: block;}
+div.componentFilterElement input {width: 13px; height: 13px; padding: 0; margin: 0; vertical-align: bottom; position: relative; float: left; top: 0px;}
+
+
+/*Setup Catalogue Section*/
+.AlphabetQuickJumpLabel	{font-weight: bold; width: 60px; float: left; padding-top: 2px;}
+#AlphabetQuickJumpLinks	{}
+.AlphabetLinks	{font-weight: bold; font-size: 125%; padding-right: 18px;}
+.alphabetSectionHeader {margin-top: 20px;}
+.jumpToTopLink a {text-align: left; font-style: italic; font-size: 75%; color: #666}

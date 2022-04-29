@@ -1,0 +1,201 @@
+/*Setup some common table elements*/
+table { }
+th { font-weight: bold; text-align: left; border: 1px solid #fff;}
+td { border: 1px solid #fff;}
+th,td {padding: 4px 12px 4px 0;}
+tfoot { font-style: italic; }
+caption { background: #fff; padding:5px; }
+
+.stripeEven	{background-color: #eee;}
+.stripeodd	{}
+.stripeOver	{background-color: #ccc;}
+
+.tableStyle1 th,.tableStyle2 th,.tableStyle3 th,.tableStyle4 th,.tableStyle5 th,.tableStyle6 th,.tableStyle7 th,.tableStyle8 th, .tableStyle1 td,.tableStyle2 td,.tableStyle3 td,.tableStyle4 td,.tableStyle5 td,.tableStyle6 td,.tableStyle7 td,.tableStyle8 td{border: 1px solid #ddd; padding-left: 6px; padding-right: 6px;}
+.tableBorders th	{border: 1px solid #ddd; padding-left: 6px; padding-right: 6px;}
+.tableBorders td	{border: 1px solid #ddd; padding-left: 6px; padding-right: 6px;}
+td.noBorders,th.noBorders,.noBorders	{border: none;}
+.leftAlignTableHelper	{left: -1px; position: relative;}
+td.alignLeft,th.alignLeft,.alignLeft       	{text-align: left;}
+td.alignRight,th.alignRight,.alignRight	    {text-align: right;}
+td.alignCentre,th.alignCentre,.alignCentre	{text-align: center;}
+td.vAlignMiddle,th.vAlignMiddle	{vertical-align: middle;}
+td.vAlignTop,th.vAlignTop	{vertical-align: top;}
+td.vAlignBottom,th.vAlignBottom	{vertical-align: bottom;}
+
+
+/*Setup some basic table styles*/
+.tableStyle1 th,.tableStyle2 th,.tableStyle3 th,.tableStyle4 th,.tableStyle5 th,.tableStyle6 th	{color: #fff; border: 1px solid #ccc;} 
+th.tableHeaderBlank	{background-color: #fff; border-color: #fff}
+
+
+/*Manage Table Cell Widths*/
+
+/*To apply to individual cells for complex layouts*/
+
+td.cellWidth-60,th.cellWidth-60 	{width: 60px;}
+td.cellWidth-80,th.cellWidth-80 	{width: 80px;}
+td.cellWidth-100,th.cellWidth-100	{width: 100px;}
+td.cellWidth-120,th.cellWidth-120	{width: 120px;}
+td.cellWidth-140,th.cellWidth-140	{width: 140px;}
+td.cellWidth-160,th.cellWidth-160	{width: 160px;}
+td.cellWidth-180,th.cellWidth-180	{width: 180px;}
+td.cellWidth-200,th.cellWidth-200	{width: 200px;}
+td.cellWidth-220,th.cellWidth-220	{width: 220px;}
+td.cellWidth-240,th.cellWidth-240	{width: 240px;}
+td.cellWidth-260,th.cellWidth-260	{width: 260px;}
+td.cellWidth-280,th.cellWidth-280	{width: 280px;}
+td.cellWidth-300,th.cellWidth-300	{width: 300px;}
+
+/*To apply to individual cells for complex layouts*/
+
+td.cellWidth-5pc,th.cellWidth-5pc 		{width: 5%;}
+td.cellWidth-10pc,th.cellWidth-10pc 	{width: 10%;}
+td.cellWidth-15pc,th.cellWidth-15pc 	{width: 15%;}
+td.cellWidth-20pc,th.cellWidth-20pc 	{width: 20%;}
+td.cellWidth-25pc,th.cellWidth-25pc 	{width: 25%;}
+td.cellWidth-30pc,th.cellWidth-30pc 	{width: 30%;}
+td.cellWidth-35pc,th.cellWidth-35pc 	{width: 35%;}
+td.cellWidth-40pc,th.cellWidth-40pc 	{width: 40%;}
+td.cellWidth-45pc,th.cellWidth-45pc 	{width: 45%;}
+td.cellWidth-50pc,th.cellWidth-50pc 	{width: 50%;}
+td.cellWidth-55pc,th.cellWidth-55pc 	{width: 55%;}
+td.cellWidth-60pc,th.cellWidth-60pc 	{width: 60%;}
+td.cellWidth-65pc,th.cellWidth-65pc 	{width: 65%;}
+td.cellWidth-70pc,th.cellWidth-70pc 	{width: 70%;}
+td.cellWidth-75pc,th.cellWidth-75pc 	{width: 75%;}
+td.cellWidth-80pc,th.cellWidth-80pc 	{width: 80%;}
+td.cellWidth-85pc,th.cellWidth-85pc 	{width: 85%;}
+td.cellWidth-90pc,th.cellWidth-90pc 	{width: 90%;}
+td.cellWidth-95pc,th.cellWidth-95pc 	{width: 95%;}
+
+/*To apply to whole tables for simple layouts*/
+.tableWidth-50pc		{width: 50%;}
+.tableWidth-60pc		{width: 60%;}
+.tableWidth-70pc		{width: 70%;}
+.tableWidth-80pc		{width: 80%;}
+.tableWidth-90pc		{width: 90%;}
+.tableWidth-100pc		{width: 100%;}
+
+/*To apply to whole tables for simple layouts*/
+
+.cellWidth-60 td,.cellWidth-60 th  		{width: 60px;}
+.cellWidth-80 td,.cellWidth-80 th  		{width: 80px;}
+.cellWidth-100 td,.cellWidth-100 th		{width: 100px;}
+.cellWidth-120 td,.cellWidth-120 th		{width: 120px;}
+.cellWidth-140 td,.cellWidth-140 th		{width: 140px;}
+.cellWidth-160 td,.cellWidth-160 th		{width: 160px;}
+.cellWidth-180 td,.cellWidth-180 th		{width: 180px;}
+.cellWidth-200 td,.cellWidth-200 th		{width: 200px;}
+.cellWidth-220 td,.cellWidth-220 th		{width: 220px;}
+.cellWidth-240 td,.cellWidth-240 th		{width: 240px;}
+.cellWidth-260 td,.cellWidth-260 th		{width: 260px;}
+.cellWidth-280 td,.cellWidth-280 th		{width: 280px;}
+.cellWidth-300 td,.cellWidth-300 th		{width: 300px;}
+
+
+
+
+/*Setup a special CRUD table layout*/
+.tableStyleCRUD th	{border: 1px solid #aaa; width: 440px; padding: 5px;}
+.tableStyleCRUD td	{border: 1px solid #aaa; padding: 5px;}
+th.crudSpacerCol,td.crudSpacerCol    {background-color: #fff; border-top-style: none; border-bottom-style: none; width: 40px;}
+td.crudSpacerRow	{background-color: #fff; border-style: none;}
+
+/*Setup a matrix table layout*/
+.tableStyleMatrix th	{border: 1px solid #ccc; text-align: center;vertical-align: bottom;}
+.tableStyleMatrix td	{border: 1px solid #ccc; text-align: center;vertical-align: middle;}
+th.tableStyleMatrixCorner			        {background-color: #fff; border: 1px solid #fff; padding:0px;}
+td.tableStyleMatrixLeftHeader	            {background-color: #fff; color: #42284f; font-weight: bold;}
+
+/*Setup a matrix table layout with two tiers on the x-axis and y-axis */
+.tableStyleMatrixTwoTier td				{border: 1px solid #ccc;}
+.tableStyleMatrixTwoTier th				{border: 1px solid #ccc; background-color: #42284f; color: #fff; text-align: center; vertical-align: middle;}
+th.tableStyleMatrixTwoTierCorner, tr.tableStyleMatrixTwoTierInnerRow th.tableStyleMatrixTwoTierCorner 	{background-color: #fff; border: none;}
+tr.tableStyleMatrixTwoTierInnerRow th	{background-color: #fff; color: #c3193c;}
+td.tableStyleMatrixTwoTierOuterCol		{background-color: #fff; color: #42284f; border: 1px solid #ccc; font-weight: bold; vertical-align: middle}
+td.tableStyleMatrixTwoTierInnerCol		{background-color: #fff; color: #c3193c; border: 1px solid #ccc; font-weight: bold; vertical-align: middle;}
+.tableStyleMatrixTwoTierInnerRow th.tableStyleMatrixTwoTierInnerColHeader		{background-color: #42284f; color: #fff; border: 1px solid #ccc; font-weight: bold; vertical-align: middle;}
+
+/*Setup a matrix table layout
+.tableStyleMatrix td				{border: 1px solid #ccc;}
+.tableStyleMatrix th				{border: 1px solid #ccc; background-color: #42284f; color: #fff; text-align: center;vertical-align: middle;}
+th.tableStyleMatrixCorner			{background-color: #fff; border: none;}
+td.tableStyleMatrixLeftHeader, td.tableStyleMatrixLeftHeader a 		{background-color: #42284f; color: #fff; font-weight: bold;}
+
+Setup a matrix table layout with two tiers on the x-axis and y-axis 
+.tableStyleMatrixTwoTier td				{border: 1px solid #ccc;}
+.tableStyleMatrixTwoTier th				{border: 1px solid #ccc; background-color: #42284f; color: #fff; text-align: center; vertical-align: middle;}
+th.tableStyleMatrixTwoTierCorner, tr.tableStyleMatrixTwoTierInnerRow th.tableStyleMatrixTwoTierCorner 	{background-color: #fff; border: none;}
+tr.tableStyleMatrixTwoTierInnerRow th	{background-color: #8b8096; color: #fff;}
+td.tableStyleMatrixTwoTierOuterCol		{background-color: #42284f; color: #fff; border: 1px solid #ccc; font-weight: bold; vertical-align: middle}
+td.tableStyleMatrixTwoTierInnerCol		{background-color: #8b8096; color: #fff; border: 1px solid #ccc; font-weight: bold; vertical-align: middle;}
+.tableStyleMatrixTwoTierInnerRow th.tableStyleMatrixTwoTierInnerColHeader		{background-color: #42284f; color: #fff; border: 1px solid #ccc; font-weight: bold; vertical-align: middle;}*/
+
+
+/*Setup table with RAG status*/
+.cellRAG_Red,.cellRAG_Orange,.cellRAG_Yellow,.cellRAG_Green,.cellRAG_Grey {color: #fff; font-weight: bold; text-align: center;}
+th.cellRAG_Header,td.cellRAG_Header,.cellRAG_Header		{background-color: #fff; color: #552b6a; font-weight: bold; border: 1px solid #ccc;}
+th.cellRAG_Red,td.cellRAG_Red,.cellRAG_Red				{background-color: #ba2401;}
+th.cellRAG_Orange,td.cellRAG_Orange,.cellRAG_Orange		{background-color: #e3a132;}
+th.cellRAG_Yellow,td.cellRAG_Yellow,.cellRAG_Yellow		{background-color: #ecd100; color: #fff;}
+th.cellRAG_Green,td.cellRAG_Green,.cellRAG_Green		{background-color: #4f8956;}
+th.cellRAG_Grey,td.cellRAG_Grey,.cellRAG_Grey			{background-color: #ccc;}
+th.cellRAG_Grey,td.cellRAG_White,.cellRAG_White			{background-color: #fff; font-weight: bold; text-align: center;}
+th.cellRAG_Blue,td.cellRAG_Blue,.cellRAG_Blue	{background-color: #0a67c3; color: white;}
+
+/*Setup table with H-M-L status*/
+.cellHML_High,.cellHML_Med,.cellHML_Low,.cellHML_None	{text-align: center; font-weight: bold;}
+th.cellHML_High,td.cellHML_High	        {background-color: #555; color: #fff;}
+th.cellHML_Med,td.cellHML_Med           {background-color: #aaa; color: #fff;}
+th.cellHML_Low,td.cellHML_Low			{background-color: #ddd; color: #333;}
+th.cellHML_None,td.cellHML_None			{background-color: #fff; color: #333;}
+
+/*Setup Special Cell Colours - handy for catalogues*/
+
+th.cellColour1,td.cellColour1	{background-color: #c3193c;}
+th.cellColour2,td.cellColour2	{background-color: #f17616;}
+th.cellColour3,td.cellColour3	{background-color: #42284f;}
+th.cellColour4,td.cellColour4	{background-color: #0171c0;}
+th.cellColour5,td.cellColour5	{background-color: #666;}
+th.cellColour6,td.cellColour6	{background-color: #aaa;}
+th.cellColour6,td.cellColour7	{background-color: #eee;}
+
+
+
+/*Setup title-bar table for matrices*/
+.tableX-AxisTitleBar,.tableY-AxisTitleBar	{background-color: #552b6a; color: #fff; font-weight: bold; text-align: center; vertical-align: middle; border: none;}
+.tableX-AxisTitleBar 						{padding: 5px;}
+.tableY-AxisTitleBar						{padding: 5px 5px 0;}
+.tableMatrixContent							{padding: 0px; border: none;}
+.tableMatrixCorner							{border: none;}
+
+
+.xAxisLabelBar,.yAxisLabelBar	{text-align:center; text-transform: uppercase; font-family:"GillSans-Bold","arial black", arial, sans-serif;}
+.xAxisLabelBar     				{margin-left:80px; width: 840px; height: 30px; float:left;}
+.yAxisLabelBar      			{width:80px; float:left;}
+.matrixContainer    			{float:left;width:840px; height:350px;}
+
+.matrixEnumIcon {
+	background-position-x: 5px;
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 120px;
+	border-radius: 10px;
+	border: 2px solid #fff;
+	text-align: center;
+	padding-left: 5px;
+	font-family:"GillSans-Bold","arial black", arial, sans-serif;
+	text-transform: uppercase;
+	margin-left: auto;
+	margin-right: auto;
+	-moz-box-shadow: 2px 2px 1px #ccc;
+	-webkit-box-shadow: 2px 2px 1px #ccc;
+	box-shadow: 2px 2px 1px #ccc;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+}
+
+.EnumIcon_CircularArrows	{background-image: url(../images/circulararrows_20px.png);}
+.EnumIcon_Plus				{background-image: url(../images/plus_20px.png);}
+.EnumIcon_Tick				{background-image: url(../images/tick_20px.png);}
+.EnumIcon_HorizArrows		{background-image: url(../images/horizarrows_20px.png);}

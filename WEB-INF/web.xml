@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd">
+	
+	<!--
+        * Copyright (c)2006-2017 Enterprise Architecture Solutions ltd.
+        * This file is part of Essential Architecture Manager, 
+        * the Essential Architecture Meta Model and The Essential Project.
+        *
+        * Essential Architecture Manager is free software: you can redistribute it and/or modify
+        * it under the terms of the GNU General Public License as published by
+        * the Free Software Foundation, either version 3 of the License, or
+        * (at your option) any later version.
+        *
+        * Essential Architecture Manager is distributed in the hope that it will be useful,
+        * but WITHOUT ANY WARRANTY; without even the implied warranty of
+        * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        * GNU General Public License for more details.
+        *
+        * You should have received a copy of the GNU General Public License
+        * along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+        * 
+        
+        Web.xml for the Essential Import Utility application
+        13.03.2017	JWC Added this comment and tracked updates
+        13.03.2017	JWC Added new servlet mappings for the XML import service
+        22.03.2017	JWC Added new servlet mappings for the XML DUP service
+    -->
+	
+	
+	<display-name>EssentialImportUtility</display-name>
+	<listener>
+		<description>
+		Used to cleanup when a session is destroyed</description>
+		<display-name>ZK Session cleaner</display-name>
+		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+	</listener>
+	<servlet>
+		<description>
+		The ZK loader for ZUML pages</description>
+		<servlet-name>zkLoader</servlet-name>
+		<servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
+		<init-param>
+			<param-name>update-uri</param-name>
+			<param-value>/zkau</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<description>
+		The asynchronous update engine for ZK</description>
+		<servlet-name>auEngine</servlet-name>
+		<servlet-class>org.zkoss.zk.au.http.DHtmlUpdateServlet</servlet-class>
+	</servlet>
+	
+	<!-- Parameters defining whether the IU is in EIP mode or Local model -->
+	<context-param>
+		<param-name>iu_mode</param-name>
+<!-- 		<param-value>eip</param-value> -->
+ 		<param-value>local</param-value>	 
+	</context-param>
+	
+	<context-param>
+		<param-name>edmServicePrefix</param-name>
+<!-- 		<param-value>http://neon.essentialintelligence.com/app</param-value> -->
+		<param-value>http://localhost:8080/example</param-value>
+	</context-param>
+	
+	<!-- Parameters defining locations of source content -->
+	<context-param>
+		<param-name>upload_temp_location</param-name>
+		<param-value>service/tmp</param-value>		
+	</context-param>
+	<context-param>
+		<param-name>source_content_location</param-name>
+		<param-value>service/source</param-value>
+	</context-param>
+	<context-param>
+		<param-name>controller</param-name>
+		<param-value>controllerSingleton</param-value>
+	</context-param>
+	<context-param>
+		<param-name>controllerDUP</param-name>
+		<param-value>controllerDUPSingleton</param-value>
+	</context-param>
+	<context-param>
+		<param-name>controllerXML</param-name>
+		<param-value>controllerXMLSingleton</param-value>
+	</context-param>
+	<context-param>
+		<param-name>controllerXMLDUP</param-name>
+		<param-value>controllerXMLDUPSingleton</param-value>
+	</context-param>
+	
+	<!-- Parameters defining the logging levels for the Protege engine -->
+	<!-- Comment these out to pick up settings from logging.properties defined
+	by the System property java.util.logging.config.file, which is normally
+	the logging.properties file in Tomcat/config 
+	Valid values are: SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
+	-->
+	<context-param>
+		<description>Logger level for the protege system logger</description>
+		<param-name>protege_system_log</param-name>
+		<param-value>WARNING</param-value>
+	</context-param>
+	<context-param>
+		<description>Logger level for the protege file handler</description>		
+		<param-name>protege_file_handler</param-name>
+		<param-value>WARNING</param-value>
+	</context-param>
+	<context-param>
+		<description>Logger level for the protege console handler</description>		
+		<param-name>protege_console_handler</param-name>
+		<param-value>WARNING</param-value>
+	</context-param>
+	
+	<!-- Servlet for the automated import service -->
+	<servlet>
+		<description>Service providing automated, system interface</description>
+		<display-name>Import Service</display-name>
+		<servlet-name>importService</servlet-name>		
+		<servlet-class>com.enterprise_architecture.essential.importutility.service.ImportService</servlet-class>
+				
+	</servlet>
+	
+	<!-- Servlet for the automated DUP import service -->
+	<servlet>
+		<description>Service providing automated, system interface for DUPs</description>
+		<display-name>DUP Import Service</display-name>
+		<servlet-name>dupImportService</servlet-name>		
+		<servlet-class>com.enterprise_architecture.essential.importutility.service.DUPImportService</servlet-class>
+				
+	</servlet>
+	
+	<!-- Servlet for the automated XML import service -->
+	<servlet>
+		<description>Service providing automated, system interface for importing XML</description>
+		<display-name>XML Import Service</display-name>
+		<servlet-name>xmlImportService</servlet-name>		
+		<servlet-class>com.enterprise_architecture.essential.importutility.service.XmlImportService</servlet-class>
+				
+	</servlet>
+	
+	<!-- Servlet for the automated XML import service in EIP/DUP mode -->
+	<servlet>
+		<description>Service providing automated, system interface for XML DUPs</description>
+		<display-name>XML DUP Import Service</display-name>
+		<servlet-name>xmlDupImportService</servlet-name>		
+		<servlet-class>com.enterprise_architecture.essential.importutility.service.XmlDUPImportService</servlet-class>
+				
+	</servlet>
+	
+	<!--  Servlet for the default OOTB callback client -->
+	<servlet>
+		<description>Default service to receive callback requests from the ImportService</description>
+		<display-name>Default Import Service Callback Client</display-name>
+		<servlet-name>importCallbackClient</servlet-name>
+		<servlet-class>com.enterprise_architecture.essential.importutility.service.ImportServiceCallbackClient</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<description>Servlet to manage the callback from the AuthN Server</description>
+		<display-name>AuthnServerCallback</display-name>
+		<servlet-name>AuthnServerCallback</servlet-name>
+		<servlet-class>com.enterprise_architecture.essential.report.security.AuthnServerCallback</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>zkLoader</servlet-name>
+		<url-pattern>*.zul</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>zkLoader</servlet-name>
+		<url-pattern>*.zhtml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>auEngine</servlet-name>
+		<url-pattern>/zkau/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>importService</servlet-name>
+		<url-pattern>/autoimport</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>dupImportService</servlet-name>
+		<url-pattern>/autoimportDUP</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>xmlImportService</servlet-name>
+		<url-pattern>/autoimportXML</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>xmlDupImportService</servlet-name>
+		<url-pattern>/autoimportXMLDUP</url-pattern>
+	</servlet-mapping>
+			
+	<servlet-mapping>
+		<servlet-name>importCallbackClient</servlet-name>
+		<url-pattern>/callback</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AuthnServerCallback</servlet-name>
+		<url-pattern>/authnServerCallback</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>index.zul</welcome-file>
+	</welcome-file-list>
+	
+	<!-- In EIP Mode, secure access to the service invoker HTML page -->
+	<!-- Define a security constraint on this application -->
+<!--	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Service Invoker Page</web-resource-name>			
+			<url-pattern>/serviceRequestForm.html</url-pattern>			
+		</web-resource-collection>
+		<auth-constraint> 
+<!-\- 			This role is not in the default user directory -\->
+		 	<role-name>EipAdmin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/403.html</location>
+	</error-page>
+	
+-->	
+	
+	<!-- END OF EIP Mode - specific configuration -->
+	
+</web-app>

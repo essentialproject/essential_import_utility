@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+	<!--
+		* Copyright (c)2014-2017 Enterprise Architecture Solutions ltd.
+	 	* This file is part of Essential Architecture Manager, 
+	 	* the Essential Architecture Meta Model and The Essential Project.
+		*
+		* Essential Architecture Manager is free software: you can redistribute it and/or modify
+		* it under the terms of the GNU General Public License as published by
+		* the Free Software Foundation, either version 3 of the License, or
+		* (at your option) any later version.
+		*
+		* Essential Architecture Manager is distributed in the hope that it will be useful,
+		* but WITHOUT ANY WARRANTY; without even the implied warranty of
+		* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		* GNU General Public License for more details.
+		*
+		* You should have received a copy of the GNU General Public License
+		* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+		* 
+	-->
+	<!-- HTML form to test posting of XML files to Essential Import Service -->
+	<!-- 22.03.2017 JWC 1st coding -->
+	<!-- 02.05.2017	JWC Added the tenant name field to the service request -->
+	
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Essential DUP XML Import Service</title>
+   <link rel="stylesheet" href="css/ev3.css" type="text/css"/>
+</head>
+   <body class="largePadding">
+      <img src="img/essential_project_logo_2016.png" class="floatRight"/>
+      <h1>Essential Import XML DUP Service</h1>
+      <br/>
+      <h2>About Essential Import XML DUP Service</h2>
+      <p>The Essential Import Service allows automated integration of source content in XML format into Essential Intelligence Platform.</p>
+      <hr/>
+      <h2>Service Test Harness</h2>
+      <p>Choose a source XML file and specify the service parameters</p>
+      <br/>
+      <!-- Add some fields for the parameters -->
+      <div class="smallButton backColourRed fontBlack textColour7 floatLeft" style="width:200px;">Send Content to Import</div>
+      <div class="horizSpacer_30px floatLeft">&#160;</div>
+      <form action="autoimportXMLDUP" method="post" enctype="multipart/form-data" name="submit">      
+         <table>
+            <tr>
+               <td>Import Activity:</td>
+               <td><input type="text" name="activity" style="width: 300px;" value="Example Import Activity"/></td>
+            </tr>
+            <tr>
+               <td>Target Environment:</td>
+               <td><input type="text" name="environment" style="width: 300px;" value="Example Live Local Repository"/></td>
+            </tr>
+            <tr>             
+               <td>Response URL:</td>
+               <td><input type="text" name="response" style="width: 300px;" value="http://localhost:8080/essential_import_utility/callback"/></td>
+            </tr>          
+            <!-- <tr>
+               <td>Publish after import?</td>
+               <td>
+                  <input type="radio" name="publish" value="yes" checked="checked"></input>Yes
+                  <input type="radio" name="publish" value="no"/>No
+               </td>
+            </tr> -->
+            <tr>
+            	<td>Tenant Name in Essential Cloud</td>
+            	<td><input type="text" name="tenantName" style="width: 300px;"/></td>
+            </tr>            
+            <tr>
+               <td>User SSO Token in target EIP Tenant: (note must have sufficient rights)</td>
+               <td><input type="text" name="tenantUserSsoToken" style="width: 300px;"/></td>
+            </tr>
+            <tr>
+               <td>Import Utility Username:</td> 
+               <td><input type="text" name="uid" style="width: 300px;"/></td>
+            </tr>
+            <tr>
+               <td>Import Utility Password: </td>
+               <td><input type="password" name="pwd" style="width: 300px;"/></td>                    
+            </tr>
+            <tr>
+               <td>Select Source XML Content:</td> 
+               <td><input type="file" name="source"/></td>
+            </tr>
+            
+         </table>
+         
+         <input type="submit" value="Request Import"/>
+      </form>
+      <div class="verticalSpacer_30px">&#160;</div>
+      <div class="clear"></div>
+      <br/>
+      <hr/>
+      <p class="small">Copyright &#169;2014-2017 The Essential Project</p>
+   </body>
+</html>

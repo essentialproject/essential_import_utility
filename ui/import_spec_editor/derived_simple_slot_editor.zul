@@ -1,0 +1,122 @@
+<!-- 
+* Copyright (c)2015 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<?script src="/js/jquery-3.5.1.min.js" ?>
+<zk>
+	<div id="derivedSimpleSlotDiv" style="margin:10px;" apply="com.enterprise_architecture.essential.importutility.ui.editors.DerivedSimpleSlotEditorComposer">
+		<vlayout spacing="15px">
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Slot Name" tooltip="slotName"/>
+				</div>
+				<div hflex="15">
+					<hlayout  spacing="15px" sclass="z-valign-top">
+						<listbox hflex="7" id="slotNameListBox" rows="1"  mold="select"/>
+						<button id="createTemplateBtn" hflex="3"  label="Create Template"/>
+					</hlayout>
+				</div>
+			</hlayout>
+			
+			
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Derived Value" tooltip="derivedValue"/>
+				</div>
+				<div hflex="15" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Define the sequence of fixed strings and column references that will comprise the slot value"/>
+				</div>
+			</hlayout>
+			<vlayout spacing = "10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Fixed Text"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<textbox id="valueFixedTxtBox"  width="275px"/>
+							<button id="addValueTxtBtn" width="70px"  label="Add Text"/>
+							<button id="addValueRefBtn" width="70px"  label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Value Segments"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top" spacing="15px">
+							<listbox style="font-size:9pt;" id="segmentsListBox" rows="4" width="275px"/>
+							<vlayout>
+								<button id="valueSegmentUpBtn" width="155px"  label="Move Segment Up"/>
+								<button id="valueSegmentDownBtn" width="155px"  label="Move Segment Down"/>
+								<separator spacing="20px"/>
+								<button id="delValueSegBtn" width="155px"  label="Delete Segment"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+						<vlayout spacing="5px">							
+							<label style="font-style:italic;font-size:9pt;" value="Column Reference"/>
+							<separator spacing="18px"/>
+						</vlayout>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<vlayout spacing="5px">
+								<textbox id="valueColumnTxtBox"  width="50px"/>
+								<label value="Ref" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="valuePreDelimTxtBox"  width="50px"/>
+								<label value="Pre-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="valuePostDelimTxtBox"  width="50px"/>
+								<label value="Post-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">							
+								<button id="valueRefBtn" width="70px"  label="Set Ref"/>
+								<separator spacing="15px"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Value Format"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top">
+							<label style="font-weight:bold;font-style:italic;" id="valueFormatLabel"/>
+						</hlayout>
+					</div>
+				</hlayout>
+			
+			</vlayout>
+		</vlayout>
+		<popup id="slotName" width="250px">
+			<div><label>The slot on the class to be populated</label></div>
+		</popup>
+		<popup id="derivedValue" width="250px">
+			<div><label>The combination of text strings and columns in the source worksheet that will form the value for this slot.</label></div>
+		</popup>
+	</div>
+</zk>

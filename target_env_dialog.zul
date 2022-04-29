@@ -1,0 +1,259 @@
+<?page title="Production Environment" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.5.1.min.js" ?>
+<zk>
+	<zscript deferred="true"><![CDATA[
+    import org.zkoss.util.media.Media;
+    import org.zkoss.zk.ui.event.Events;
+ 
+    public void uploadProject(Media[] protegeProject) {
+		Listbox targetEnvTypeListBox = (Listbox) targetEnvWindow.getFellow("targetEnvTypeListBox");
+		System.out.println("CURRENT LISTBOX ENV TYPE: " + targetEnvTypeListBox.getSelectedItem().getValue());
+    	if(!targetEnvTypeListBox.getSelectedItem().getValue().equals("LOCAL")) {
+    		try {
+        		Messagebox.show("The Import Environment must be local to upload the project file", "Invalid Import Environment Type", Messagebox.OK, Messagebox.ERROR);
+        		return;
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} 	
+    	
+    	Textbox targetEnvNameTxtBox = (Textbox) targetEnvWindow.getFellow("targetEnvNameTxtBox");
+    	if(targetEnvNameTxtBox.getValue().isEmpty()) {
+    		try {
+        		Messagebox.show("The Import Environment must have a name to upload the project file", "Missing Import Environment Name", Messagebox.OK, Messagebox.ERROR);
+        		return;
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	
+    	
+        if (protegeProject.length > 0) {
+        	Media projectFile = protegeProject[0];
+        	
+        	if(!projectFile.getName().endsWith("zip")) {
+        		try {
+	        		Messagebox.show("A zip file must be selected", "Invalid File Type", Messagebox.OK, Messagebox.ERROR);
+	        		return;
+        		} catch(Exception e) {
+        			e.printStackTrace();
+        		}
+        	}
+        	
+        	targetEnvWindow.setAttribute("uploadedProject", projectFile);
+        	Textbox projectPathTxtBox = (Textbox) targetEnvWindow.getFellow("projectPathTxtBox");
+        	projectPathTxtBox.setValue(projectFile.getName());
+        	
+        	//notify the composer that the file has been uploaded
+        	Events.sendEvent("onProjectUpload", targetEnvWindow, null);
+        }
+    }
+   
+]]></zscript>
+	<window id="targetEnvWindow" title="New Production Environment" border="normal" width="900px" closable="true" apply="com.enterprise_architecture.essential.importutility.ui.TargetEnvironmentsComposer" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+		<vlayout spacing="10px">
+			<hlayout>
+				<div hflex="3">
+					<label class="strong" value="Environment Name"/>
+				</div>
+				<div hflex="5">
+					<textbox id="targetEnvNameTxtBox" hflex="1" constraint="no empty"/>
+				</div>
+			</hlayout>
+			<!-- <hlayout spacing ="30px">
+				<div hflex="3">
+					<label class="strong" value="Deployment Role"/>
+				</div>
+				<div hflex="5">
+					<listbox id="targetEnvRoleListBox" mold="select" rows="1" width="100%">
+						<listitem label="- Select Deployment Role -"/>
+						<listitem label="Development" value="DEV"/>
+						<listitem label="QA" value="QA"/>
+						<listitem label="Live" value="LIVE"/>
+					</listbox>
+				</div>
+			</hlayout>  -->
+			<hlayout>
+				<div hflex="3">
+					<label class="strong" value="Description"/>
+				</div>
+				<div hflex="5">
+					<textbox id="targetEnvDescTxtBox" rows="3" width="100%"/>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div hflex="3">
+					<label class="strong" value="Deployment Type"/>
+				</div>
+				<div hflex="5">
+					<listbox id="targetEnvTypeListBox" mold="select" rows="1" width="100%">
+						<listitem label="- Select Deployment Type -"/>
+						<listitem label="Local" value="LOCAL"/>
+						<listitem label="Server" value="SERVER"/>
+					</listbox>
+				</div>
+			</hlayout>
+			<separator sclass="top-15 bottom-15" bar="true"/>
+			<hlayout>
+				<div hflex="3">
+					<label class="strong" value="Upload Local Repository (zip)"/>
+				</div>
+				<div hflex="5" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Upload a local file-based repository"/>
+				</div>
+			</hlayout>
+			<vlayout spacing="10px" sclass="z-halign-right">
+				<!-- 	<hlayout sclass="z-valign-middle" spacing ="30px">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Project File Name"/>
+					</div>
+					<div hflex="5">
+						<textbox id="localFilePathTxtBox" width="100%"/>
+					</div>
+				</hlayout>  -->
+				<hlayout sclass="z-valign-middle">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Project File Name"/>
+					</div>
+					<div hflex="5">
+						<hlayout spacing="20px">
+							<textbox id="projectPathTxtBox" hflex="1"/>
+							<button class="btn btn-default" disabled="true" width="150px" id="uploadLocalProjectBtn" label="Upload..." upload="true,maxsize=-1" onUpload="uploadProject(event.getMedias());"/>
+						</hlayout>
+					</div>
+				</hlayout>
+			</vlayout>
+			<separator sclass="top-15 bottom-15" bar="true"/>
+			<hlayout>
+				<div hflex="3">
+					<label class="strong" value="Server-based Repository Details"/>
+				</div>
+				<div hflex="5" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Provide details for a server-based repository"/>
+				</div>
+			</hlayout>
+			<vlayout spacing="10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-middle">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Project Name"/>
+					</div>
+					<div hflex="5">
+						<textbox id="projectNameTxtBox" width="100%"/>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-middle">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Server Hostname"/>
+					</div>
+					<div hflex="5">
+						<textbox id="serverHostNameTxtBox" width="100%"/>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-middle">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Username"/>
+					</div>
+					<div hflex="5">
+						<textbox id="usernameTxtBox" width="100%"/>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-middle">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Password"/>
+					</div>
+					<div hflex="5">
+						<textbox id="passwordTxtBox" type="password" width="100%"/>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-middle">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Confirm Password"/>
+					</div>
+					<div hflex="5">
+						<textbox id="confirmPasswordTxtBox" type="password" width="100%"/>
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex="3"/>
+					<div hflex="5">
+						<button id="testImpEnvBtn" width="120px" label="Test Connection"/>
+					</div>
+				</hlayout>
+
+			</vlayout>
+			<separator sclass="top-15 bottom-15" bar="true"/>
+			<hlayout sclass="z-valign-middle">
+				<div hflex="3">
+					<label class="strong" value="Essential Viewer Details"/>
+				</div>
+				<div hflex="5" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Provide details for the Essential Viewer of this environment"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-middle">
+				<div align="right" class="right-15" hflex="3">
+					<label class="small italic" value="Essential Viewer URL"/>
+				</div>
+				<div hflex="5">
+					<textbox id="viewerPathTxtBox" hflex="1" value="http://"/>
+					<!--<h:input id="selectfile" type="file" size="1" zk:onChange="repPathTxtBox.value=self.value"/> -->
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-middle">
+				<div hflex="3" align="right" class="right-15">
+					<label class="small italic" value="Viewer Username (optional)"/>
+				</div>
+				<div hflex="5">
+					<textbox id="viewerUsernameTxtBox" width="100%"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-middle">
+				<div hflex="3" align="right" class="right-15">
+					<label class="small italic" value="Viewer Password (optional)"/>
+				</div>
+				<div hflex="5">
+					<textbox id="viewerPasswordTxtBox" type="password" width="100%"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-middle">
+				<div hflex="3" align="right" class="right-15">
+					<label class="small italic" value="Confirm Password (optional)"/>
+				</div>
+				<div hflex="5">
+					<textbox id="confirmViewerPasswordTxtBox" type="password" width="100%"/>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div hflex="3"/>
+				<div hflex="5">
+					<button id="testViewerBtn" width="120px" label="Test Connection"/>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div hflex="1" align="right" class="top-15">
+					<button class="btn-success right-10" id="okBtn" width="80px" label="OK"/>
+					<button class="btn-danger" id="cancelBtn" width="80px" label="Cancel"/>
+				</div>
+			</hlayout>
+		</vlayout>
+
+	</window>
+</zk>

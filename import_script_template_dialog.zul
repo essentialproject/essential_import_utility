@@ -1,0 +1,78 @@
+<?page title="Import Activity" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.5.1.min.js" ?>
+<zk>
+	<window id="impScriptTemplateWindow" title="New Jython Import Script Template" border="normal" width="900px" closable="true" apply="com.enterprise_architecture.essential.importutility.ui.ImportScriptComposer">
+		<vlayout spacing="10px">
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Import Script Element"/>
+				</div>
+				<div hflex="5">
+					<listbox id="impScriptElementListBox" mold="select" rows="1" width="100%">
+						<listitem label="Import Prefix" value="ImportPrefix"/>
+						<listitem label="Worksheet" value="Worksheet"/>
+						<listitem label="Simple Instance" value="SimpleInstance"/>
+						<listitem label="Derived Instance" value="DerivedInstance"/>
+						<listitem label="Simple Slot" value="SimpleSlot"/>
+						<listitem label="Instance Slot" value="InstanceSlot"/>
+						<listitem label="Derived Simple Slot" value="DerivedSimpleSlot"/>
+						<listitem label="Derived Slot from Variable" value="DerivedSlotFromVariable"/>
+						<listitem label="Variable from Slot" value="VariableFromSlot"/>
+						<listitem label="Primitive Slot" value="PrimitiveSlot"/>
+						<listitem label="Line Terminator" value="LineTerminator"/>
+						<listitem label="Import Suffix" value="ImportSuffix"/>
+					</listbox>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Matching Mode"/>
+				</div>
+				<div hflex="5">
+					<listbox id="impScriptModeListBox" mold="select" rows="1" width="100%">
+						<listitem label="N/A" value="NotApplicable"/>
+						<listitem label="By Name" value="ByName"/>
+						<listitem label="By ID" value="ByID"/>
+					</listbox>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Script Template"/>
+				</div>
+				<div hflex="5">
+					<vlayout spacing="8px">
+						<hlayout>
+							<listbox id="scriptTokenListBox" mold="select" rows="1" hflex="1"/>
+							<button id="addTokenBtn" width="90px" label="Add Token"/>
+						</hlayout>
+						<textbox tabbable="true" id="impScriptTempStringTxtBox" rows="6" width="100%"/>
+					</vlayout>
+				</div>
+			</hlayout>
+			<div align="right" class="top-15">
+				<button class="btn-success right-10" id="okBtn" width="80px" label="OK" autodisable="+self"/>
+				<button class="btn-danger" id="cancelBtn" width="80px" label="Cancel"/>
+			</div>
+		</vlayout>
+
+	</window>
+</zk>

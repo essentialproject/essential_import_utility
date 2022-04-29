@@ -1,0 +1,748 @@
+/* @group Grid Models (e.g. Reference Models) */
+
+.GridModelHeader	{
+	width: 100%;
+	height: 20px;
+	padding: 5px;
+	text-align: center;
+	border: 2px solid white;
+	border-radius: 5px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;
+}
+
+.gridModel_layerTitleContainerFullWidth,.gridModel_layerTitleContainerFullWidth_Rounded	{
+	width: 860px;
+	height: 15px;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.gridModel_layerTitleContainerFullWidth_Rounded	{
+	border-radius: 30px 30px 0px 0px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+}
+
+.gridModel_layerContentContainer	{
+	width: 840px;
+	float: left;
+	padding: 10px;
+}
+
+.gridModel_objectContainer a {
+	text-decoration: none;
+	color: #333;
+}
+
+.gridModel_object div,.gridModel_objectInactive div	{
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.gridModel_object,.gridModel_objectInactive	{
+	width: 150px;
+	height: 40px;
+	font-size: 90%;
+	float: left;
+	padding: 2px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+/*	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;*/
+}
+
+.gridModel_object:hover	{
+	/*background-color: #aaa;*/
+	color: #666;
+	cursor: pointer;
+	border: 2px solid #fff;	
+}
+
+.gridModel_objectInactive	{
+	background-color: #ddd;
+	color: #aaa;
+	cursor: default;
+}
+
+.greyButton1	
+{
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	background: #ffffff; /* Old browsers */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#f3f3f3 89%,#f9f9f9 100%); /* Chrome10+,Safari5.1+ */
+	background:    -moz-linear-gradient(top, #ffffff 0%,#f3f3f3 89%,#f9f9f9 100%); /* FF3.6+ */
+	background:     -ms-linear-gradient(top, #ffffff 0%,#f3f3f3 89%,#f9f9f9 100%); /* IE10+ */
+	background:      -o-linear-gradient(top, #ffffff 0%,#f3f3f3 89%,#f9f9f9 100%); /* Opera 11.10+ */
+	background:         linear-gradient(top, #ffffff 0%,#f3f3f3 89%,#f9f9f9 100%); /* W3C */
+	-pie-background:         linear-gradient(top, #ffffff 0%,#f3f3f3 89%,#f9f9f9 100%); /* PIE */
+	text-shadow: 0 -1px 0 #eee;
+}
+
+.greyButton1:hover	
+{
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	background: #f3f3f3; /* Old browsers */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#ddd 89%,#d0d0d0 100%); /* Chrome10+,Safari5.1+ */
+	background:    -moz-linear-gradient(top, #ffffff 0%,#ddd 89%,#d0d0d0 100%); /* FF3.6+ */
+	background:     -ms-linear-gradient(top, #ffffff 0%,#ddd 89%,#d0d0d0 100%); /* IE10+ */
+	background:      -o-linear-gradient(top, #ffffff 0%,#ddd 89%,#d0d0d0 100%); /* Opera 11.10+ */
+	background:         linear-gradient(top, #ffffff 0%,#ddd 89%,#d0d0d0 100%); /* W3C */
+	-pie-background:         linear-gradient(top, #ffffff 0%,#ddd 89%,#d0d0d0 100%); /* W3C */
+	text-shadow: 0 -1px 0 #eee;
+}
+
+/*Special Classes for Tech Reference Model*/
+
+#techRefModel_leftContainer	{
+	float: left;
+	margin-right: 10px;
+	border-radius: 20px 0 0 0;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+}
+
+#techRefModel_centreContainer	{
+	float: left;
+}
+
+#techRefModel_rightContainer	{
+	float: left;
+	margin-left: 10px;
+	border-radius: 0 20px 0 0;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+}
+
+#techRefModel_bottomContainer	{
+	float: left;
+}
+
+.techRefModel_LeftColTitle	{
+	width: 180px;
+	height: 25px;
+	padding: 5px 0;
+	text-align: center;
+	border-radius: 20px 0 0 0;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+}
+
+.techRefModel_RightColTitle	{
+	width: 180px;
+	height: 25px;
+	padding: 5px 0;
+	text-align: center;
+	border-radius: 0 20px 0 0;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+}
+
+.techRefModel_LeftColContentContainer,.techRefModel_RightColContentContainer	{
+	width: 160px;
+	padding: 10px 10px 5px;
+	float: left;
+}
+
+.techRefModel_CentreColTitle	{
+	width: 540px;
+	height: 25px;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.techRefModel_CentreColContentContainer	{
+	width: 520px;
+	padding: 10px;
+	float: left;
+}
+
+.techRefModel_BottomColTitle	{
+	width: 920px;
+	height: 25px;
+	padding: 5px 0;
+	text-align: center;
+}
+
+.techRefModel_BottomColContentContainer	{
+	width: 900px;
+	padding: 10px;
+	float: left;
+}
+
+
+/* @end */
+
+
+
+/* @group dependencyModel */
+
+.modelContainer	{
+	float: left;
+}
+
+.dependencyModel_Table td	{
+	padding: 5px 0 10px 0px;
+	border: none;
+}
+
+#dependencyModel_LeftContainer,#dependencyModel_RightContainer,#dependencyModel_CentreContainer	{
+	float: left;
+}
+
+td.dependencyModel_HeaderBlank	{
+	width: 150px;
+}
+
+td.dependencyModel_HeaderInOutBound	{
+	text-transform: uppercase;
+	text-align: center;
+	width: 220px;
+}
+
+.dependencyModel_Inbound,.dependencyModel_Outbound,.dependencyModel_Hub	{
+	width: 140px;
+	text-align: center;
+	font-family: "Arial Black", Arial;
+	font-size: 90%;
+	text-transform: uppercase;
+	border-radius: 10px;
+	border: 2px solid white;
+	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.dependencyModel_InboundEmpty	{
+	width: 140px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 10px;
+	padding-top: 10px;
+	border: 2px solid white;
+}
+
+.dependencyModel_Inbound:hover,.dependencyModel_Outbound:hover,.dependencyModel_Hub:hover	{
+	background-color: #aaa;
+	color: #fff;
+}
+
+.dependencyModel_Inbound a,.dependencyModel_Outbound a	{
+	text-decoration: none;
+}
+
+.dependencyModel_TableLeft a,.dependencyModel_TableRight a	{
+	text-decoration: none;
+}
+
+td.dependencyModel_InboundArrow a:hover,td.dependencyModel_OutboundArrow a:hover	{
+	text-decoration: underline;
+}
+
+td.dependencyModel_InboundArrow,td.dependencyModel_OutboundArrow,td.dependencyModel_EmptyArrow	{
+	width: 180px;
+	vertical-align: middle;
+	border: none;
+	font-size: 90%;
+	padding-left: 15px;
+	padding-right: 25px;
+	height: 90px;
+	max-height: 90px;
+	overflow: hidden;
+}
+
+td.dependencyModel_InboundArrow,td.dependencyModel_OutboundArrow	{
+	background: url(../images/arrow_right_270px.png) no-repeat right center;
+}
+
+td.dependencyModel_EmptyArrow   {
+    text-align:center
+}
+
+#dependencyModel_KeyContainer	{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	float: left;
+	clear: both;
+}
+
+.dependencyModel_KeySample	{
+	width: 12px;
+	height: 12px;
+	float: left;
+	margin-right: 5px;
+}
+
+.dependencyModel_KeyLabel	{
+	height: 13px;
+	float: left;
+	margin-right: 20px;
+}
+
+
+/* @end */
+
+/* @group Provider Model */
+
+.providerModel td	{
+	vertical-align: middle;
+	text-align: center;
+	padding: 0px 0px 10px;
+}
+
+td.providerModelHeader	{
+	width: 140px;
+	padding: 10px;
+	text-align: center;
+}
+
+td.providerModelHeaderBlank	{
+	width: 580px;
+}
+
+.providerModelArrowL2R	{
+	width: 544px;
+	background: url(../images/doubleendedthinarrow.png) no-repeat right center;
+	padding: 0 0 30px;	
+}
+
+.providerModelArrowR2L	{
+	width: 544px;
+	background: url(../images/doubleendedthinarrow.png) no-repeat left center;
+	padding: 0 0 30px;
+	
+}
+
+.providerModelKeyContainer	{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	height: 20px;
+	float: left;
+}
+.providerModelKeyLabel	{
+	margin-right: 10px;
+	float: left;
+	height: 20px;
+}
+.providerModelKeyContent	{
+	float: left;
+	margin-right: 10px;
+	height: 20px;
+}
+
+.providerModelKeySample	{
+	width: 10px;
+	float: left;
+	margin-right: 5px;
+	height: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.providerModelBadge	{
+	margin-left: 3px;
+	position: relative;
+	bottom: -3px;
+}
+
+/* @end */
+
+/* @group Blob Model
+ */
+
+.blobModel_Header	{
+	width: 897px;
+	padding-top: 5px;
+	height: 10px;
+	margin-bottom: 10px;
+	border: 2px solid #fff;
+	text-align: center;
+	border: 2px solid white;
+	border-radius: 10px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;
+}
+
+.blobModel_Object,.blobModel_ObjectInactive	{
+	width: 160px;
+	height: 40px;
+	max-height: 40px;
+}
+
+.blobModel_ObjectSmall,.blobModel_ObjectInactiveSmall	{
+	width: 119px;
+	height: 30px;
+	max-height: 30px;
+}
+
+.blobModel_Object,.blobModel_ObjectInactive,.blobModel_ObjectSmall,.blobModel_ObjectInactiveSmall	{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 2px solid #fff;
+	text-align: center;
+	border: 2px solid white;
+	border-radius: 10px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;
+	text-decoration:none;
+}
+
+.blobModel_Object:hover,.blobModel_ObjectSmall:hover {
+	background-color: #aaa;
+	color: #fff;
+	cursor: pointer;
+	text-decoration:none;
+}
+
+.blobModel_ObjectInactive,.blobModel_ObjectInactiveSmall	{
+	background-color: #ddd;
+	color: #aaa;
+	cursor: default;
+	text-decoration:none;
+}
+
+
+/* @end */
+
+/* @group Value Chain style diagram
+ */
+
+.valueChainCapabilitySpacer	{
+	width: 150px;
+	height: 15px;
+	float: left;
+}
+
+.valueChainCapabilityMap	{
+	/*width: 383px;*/
+	float: left;
+	text-align: center;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	padding: 5px;
+}
+
+.valueChainHeader	{
+	width: 138px;
+	height: 50px;
+	float: left;
+	border-right: 2px solid #fff;
+	padding: 0 5px;
+}
+
+.valueChainContent	{
+	width: 80px;
+	padding: 0 5px;
+	height: 50px;
+	max-height: 50px;
+	overflow: hidden;
+	float: left;
+}
+
+.valueChainArrow	{
+	width: 20px;
+	height: 50px;
+	float: left;
+	background-image: url(../images/value_chain_arrow.png);
+}
+
+.valueChainArrowEnd	{
+	width: 20px;
+	height: 50px;
+	float: left;
+	background-image: url(../images/value_chain_arrow_end.png);
+}
+
+.valueChainArrowDisabled	{
+	width: 20px;
+	height: 50px;
+	float: left;
+	background-image: url(../images/value_chain_arrow_disabled.png);
+}
+
+.valueChainArrowEndDisabled	{
+	width: 20px;
+	height: 50px;
+	float: left;
+	background-image: url(../images/value_chain_arrow_end_disabled.png);
+}
+
+.valueChainArrowMidDisabled	{
+	width: 20px;
+	height: 50px;
+	float: left;
+	background-image: url(../images/value_chain_arrow_mid_disabled.png);
+}
+
+.valueChainScrollContainer	{
+	width: 930px;
+	height: 450px;
+	overflow-y: auto;
+	overflow-x: visible;
+}
+
+.valueChainMapHeader	{
+	width: 138px;
+	height: 36px;
+	border-right: 2px solid #fff;
+	margin: 5px 0;
+	padding: 2px 5px;
+}
+
+.valueChainMapRowTitle	{
+	width: 138px;
+	height: 40px;
+	max-height: 40px;
+	overflow: hidden;
+	border-right: 2px solid #fff;
+	float: left;
+	margin: 5px 2px 5px 0;
+	padding: 0 5px;
+}
+
+.valueChainMapRowHighlightStart	{
+	width: 90px;
+	height: 40px;
+	float: left;
+	margin: 5px 0;
+}
+.valueChainMapRowHighlight	{
+	width: 110px;
+	height: 40px;
+	float: left;
+	margin: 5px 0;
+}
+
+.valueChainMapRowDivider	{
+	width: 900px;
+	height: 1px;
+	border-top: 1px dotted #ccc;
+}
+
+#gradientKeyContainer	{
+	float: right;
+	position:relative;
+	top: 5px;
+}
+
+.gradientKeyLabel	{
+	float: left;
+	margin-right: 10px;
+}
+
+.gradientKeySample	{
+	width: 45px;
+	height: 15px;
+	float: left;
+}
+/* @end */
+
+/* @group UML Models */
+
+.umlModelViewport	{
+	overflow:hidden;
+	width:860px;
+	height:500px;
+	position:relative;
+}
+
+.uml_key_container			{
+	float: left;
+	height: 20px;
+	width: 70%;
+}
+.umlKeyTitle				{
+	margin-right: 10px;
+	float: left;
+	height: 20px;
+}
+.umlCircleBadge				{
+	float: left;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	text-align: center;
+	border: 1px solid #fff;
+	margin-right: 10px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;
+	font-family: "Courier New", Courier, mono;
+	font-weight: bold;
+	padding-left: 2px;
+}
+ 
+.umlCircleBadgeDescription	{
+	float: left;
+	margin-right: 20px;
+	height: 20px;
+}
+
+.umlZoomContainer	{
+	float: right;
+	width: auto;
+}
+
+.umlZoomContainer input	{
+	margin-top: 0px;
+
+	
+}
+
+/* @end */
+
+/* @group Component Model Style */
+
+.componentColumnContainer	{
+	width: 120px;
+	float: left;
+	height: auto;
+}
+
+.componentContent	{
+	width: 111px;
+	height: 34px;
+	padding: 3px;
+	border-top: 3px solid #fff;
+	border-right: 3px solid #fff;
+	text-align: center;
+}
+
+/* @end */
+
+.smallButton,.smallBadge	{
+	width: auto;
+	height: 15px;
+	border: 2px solid #fff;
+	text-align: center;
+	border: 2px solid white;
+	border-radius: 10px;
+	position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+	-webkit-box-shadow: #666 2px 2px 0px 0px;
+	-moz-box-shadow: #666 2px 2px 0px 0px;
+	box-shadow: #aaa 2px 2px 0px 0px;
+	padding: 2px 5px;
+	left: -5px;
+}
+
+.smallButton:hover {
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+.tapeDeckIndicatorLabelStart	{
+	margin-right: 10px;
+	float: left;
+}
+
+.tapeDeckIndicatorLabelEnd	{
+	margin-left: 5px;
+	float: left;
+}
+
+.tapeDeckIndicator	{
+	width: 80px;
+	height: 20px;
+	float: left;
+	margin-right: 3px;
+}
+
+#map    {
+    width:920px;
+    height:450px;
+}
+
+#mapInit    {
+    background-color:#fff;
+    opacity:0.8;
+    filter: alpha(opacity=70);
+    z-index:100;
+    position:absolute;
+    width:920px;
+    height:450px;
+}
+
+/* @group Component Model Style */
+
+.compModelColumn
+{
+    width:120px;
+    float:left;
+    margin-right:20px;
+}
+
+.compModelContent
+{
+    width:120px;
+    height:55px;
+    min-height:55px;
+    max-height:55px;
+    overflow:hidden;
+    padding-left:6px;
+    padding-right:6px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+
+.compModelElementContainer
+{
+    border:2px solid #fff;
+}
+
+.compModelElementContainerHighlight
+{
+    border:2px dashed red;
+}
+
+.tabTop {
+    border-radius: 10px 10px 0 0;
+    position: relative; /*required to enable PIE to function*/
+	behavior: url(media/PIE-htc.jsp);
+
+}
+
+th.ImpactSummaryPercent	{
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #8C8C8D;
+	border: 1px solid #cfa927;
+	padding: 3px;
+	width: 150px;
+}
+
+td.CompImpactLow	{
+	background-color: white;
+	font-size: 16px;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: left;
+}
+
+/* @end */

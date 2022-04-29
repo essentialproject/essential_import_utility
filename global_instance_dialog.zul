@@ -1,0 +1,56 @@
+<?page title="Global Instance" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.5.1.min.js" ?>
+<zk>
+	<window id="globalInstanceWindow" title="New Global Instance" border="normal" width="600px" closable="true" apply="com.enterprise_architecture.essential.importutility.ui.GlobalInstancesComposer" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+		<vlayout spacing="10px">
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Import Variable Name"/>
+				</div>
+				<div hflex="5">
+					<textbox id="varNameTxtBox" hflex="1" constraint="no empty"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Essential Class Name"/>
+				</div>
+				<div hflex="5">
+					<combobox autodrop="true" hflex="1" id="classNameTxtBox"/>
+					<!--  <textbox id="classNameTxtBox" hflex="1" constraint="no empty"/> -->
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Essential Instance Name"/>
+				</div>
+				<div hflex="5">
+					<textbox id="instanceNameTxtBox" hflex="1" constraint="no empty"/>
+				</div>
+			</hlayout>
+			<div align="right" class="top-15">
+				<button class="btn-success right-10" id="okBtn" width="80px" label="OK" autodisable="+self"/>
+				<button class="btn-danger" id="cancelBtn" width="80px" label="Cancel"/>
+			</div>
+		</vlayout>
+
+	</window>
+</zk>

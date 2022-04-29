@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE EssentialImportUtility>
+<EssentialImportUtility
+    xmlns="http://www.enterprise-architecture.org/essential/importutility/config"
+    xmlns:ns2="http://www.enterprise-architecture.org/essential/importutility/common">
+    <ImportUtilityVersion>2.1</ImportUtilityVersion>
+</EssentialImportUtility>
+

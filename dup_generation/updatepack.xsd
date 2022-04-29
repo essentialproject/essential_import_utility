@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.enterprise-architecture.org/essential/updatepack"
+    targetNamespace="http://www.enterprise-architecture.org/essential/updatepack"           
+    elementFormDefault="qualified">
+    
+    <!-- 
+        * Copyright (c)2012 Enterprise Architecture Solutions ltd.
+        * This file is part of Essential Architecture Manager, 
+        * the Essential Architecture Meta Model and The Essential Project.
+        *
+        * Essential Architecture Manager is free software: you can redistribute it and/or modify
+        * it under the terms of the GNU General Public License as published by
+        * the Free Software Foundation, either version 3 of the License, or
+        * (at your option) any later version.
+        *
+        * Essential Architecture Manager is distributed in the hope that it will be useful,
+        * but WITHOUT ANY WARRANTY; without even the implied warranty of
+        * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        * GNU General Public License for more details.
+        *
+        * You should have received a copy of the GNU General Public License
+        * along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+        * 
+        Schema for the update pack definition document that is used as the specification for the Essential Update Tab 
+    -->
+    <!-- 04.04.2012    JWC    1st coding-->
+    <xs:element name="updatepack">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="updatename" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+                <xs:element name="updatedescription" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+                <xs:element name="pack" type="packdefinition" minOccurs="1" maxOccurs="unbounded"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="packdefinition">
+        <xs:complexContent>
+            <xs:extension base="packdetails">
+                <xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+                <xs:attribute name="sequence" type="xs:int" use="required"></xs:attribute>
+            </xs:extension>
+        </xs:complexContent>    
+    </xs:complexType>
+    
+    <xs:complexType name="packdetails">        
+        <xs:sequence>    
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="description"></xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:string" name="filename"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:string" name="chunktoken"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

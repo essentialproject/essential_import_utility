@@ -1,0 +1,729 @@
+.hidden	{
+	display: none;
+}
+
+.show	{
+	visibility: visible;
+}
+
+.hide	{
+	visibility: hidden;
+}
+
+body	{
+	margin: 5px 0 5px 0;
+}
+
+form  {float:left;}
+.radioAlign	{margin-top:5px;}
+.radioMarginLeft	{margin-left: 10px;}
+.radioMarginRight	{margin-right: 5px;}
+.selectMarginRight	{margin-right: 10px;}
+
+.width50px	{width: 50px;}
+.width100px	{width: 100px;}
+.width120px	{width: 120px;}
+.width140px	{width: 140px;}
+.width150px	{width: 150px;}
+.width160px	{width: 160px;}
+.width180px	{width: 180px;}
+.width200px	{width: 200px;}
+.width250px	{width: 250px;}
+
+.smallPadding {padding:2px;}
+.medPadding {padding:5px;}
+.largePadding {padding:10px;}
+
+.formFix    {position:relative;top:3px;}
+.flagFix    {vertical-align:text-bottom;}
+
+/*Setup classes for adhoc floats*/
+.clear {clear: both;}
+.floatLeft	{float: left;}
+.floatRight	{float: right;}
+
+/*Setup Site Default Width*/
+
+.pageWidthContainer {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Setup main content container*/
+
+#mainContentContainer	{
+	width: 920px;
+	background-color: #fff;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	float: left;
+	box-shadow: 0px 10px 15px 5px #ccc;
+	border-radius: 0 0 20px 20px;
+	behavior: url(media/PIE-htc.jsp);
+	position: relative; /*required to enable PIE to function*/
+	background-image: -moz-linear-gradient(bottom, #eeeeee, #ffffff 15px);
+	background-image: -webkit-linear-gradient(bottom, #eeeeee, #ffffff 15px);
+	background-image: -o-linear-gradient(bottom, #eeeeee, #ffffff 15px);
+	background-image: -ms-linear-gradient(bottom, #eeeeee, #ffffff 15px);
+	background-image: linear-gradient(bottom, #eeeeee, #ffffff 15px);
+	-pie-background: linear-gradient(bottom, #eeeeee, #ffffff 15px,  #ffffff 10px);	
+}
+
+/*Setup 2 column layout for portal pages*/
+#mainContentContainerLeft	{
+	width: 679px;
+	padding-right: 10px;
+	border-right: 1px solid #ccc;
+	float: left;
+}
+
+#mainContentContainerRight	{
+	width: 220px;
+	padding-left: 10px;
+	float: left;
+}
+
+/* @group Site Header */
+
+/*Setup Site Header*/
+
+#siteHeaderContainer,#siteHeaderCompanyLogo	{
+	height: 60px;
+	margin-bottom: 10px;
+}
+
+#siteHeaderContainer	{
+	width: 960px;
+
+}
+
+#siteHeaderCompanyLogo	{
+	width: 320px;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	margin-left: 20px;
+	float: left;
+}
+
+#siteHeaderRightLinksContainer	{
+	float: right;
+	position: relative;
+	margin-right: 15px;
+	top: 40px;
+}
+
+.siteHeaderRightLink	{
+	float: left;
+}
+
+.siteHeaderRightLinkDivider	{
+	float: left;
+	width: 1px;
+	height: 12px;
+	background-color: #444;
+	margin-left: 5px;
+	margin-right: 5px;
+	top: 3px;
+	position: relative;
+}
+
+#siteHeaderSearch	{
+	float: left;
+	width: 177px;
+	margin-left: 15px;
+	height: 22px;
+}
+
+/* @end */
+
+/* @group Site Footer */
+
+/*Setup site footer*/
+
+#pageFooter	{
+	clear: both;
+	width: 960px;
+	height: 20px;
+	text-align: center;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+
+/* @end */
+
+/* @group Site Title Bar */
+
+/*Setup Site Title Bar*/
+
+#siteTitleCurve	{
+	width: 960px;
+	height: 55px;
+	float: left;
+	border-radius: 20px 20px 0 0;
+	box-shadow: 0px 10px 15px 5px #ccc;
+/*	behavior: url(media/PIE-htc.jsp);*/
+	position: relative; /*required to enable PIE to function*/
+}
+
+#siteTitleMainContainerContent {
+	width: 640px;
+	float: left;
+	margin-left: 20px;
+}
+
+#siteTitleRightLinksContainer {
+	float: right;
+	margin-right: 20px;
+	padding-top: 20px;
+	position: relative;
+	top: 1px;
+}
+
+#siteTitleRightLinksContainer,#siteTitleRightLinksContainerContent {
+	width: 280px;
+}
+
+#siteTitleMainContainerContent,#siteTitleRightLinksContainerContent	{
+	
+}
+
+.siteTitleRightLink {
+	float: right;
+}
+	
+.siteTitleRightLinkDivider {
+	width: 1px;
+	height: 20px;
+	background-color: #ffffff;
+	float: right;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/* @end */
+
+/* @group Filter Checkboxes */
+
+#subFilterContainer	{
+	margin-left: 60px;
+}
+
+#filterSectionContainer	{
+	margin-top: 15px;
+	
+}
+
+#subfilterSectionContainer	{
+	margin-top: 15px;
+}
+
+#componentFilterKey,#subcomponentFilterKey	{
+	width: 60px;
+	float: left;
+	position: relative;	
+	bottom: 2px;
+	
+}
+
+#componentFilterElementsContainer,#subcomponentFilterElementsContainer	{
+	width: 850px;
+	float: left;
+	
+}
+
+.componentFilterElement	{
+	float: left;
+	margin-right: 5px;
+	width: 200px;
+	margin-bottom: 5px;
+}
+
+.checkbox a	{
+	margin-left: 20px;
+	bottom: 1px;
+	position: relative;
+}
+
+div.componentFilterElement input {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    /**overflow: hidden;*/
+    float: left;
+    top: 0px;
+}
+
+/* @end */
+
+
+/* @group Section Types */
+
+.sectionDividerHorizontal	{
+	height: 1px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ccc;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	float: left;
+}
+
+.sectionDividerVertical-50,.sectionDividerVertical-75,.sectionDividerVertical-100,.sectionDividerVertical-125,.sectionDividerVertical-150,.sectionDividerVertical-175,.sectionDividerVertical-200,.sectionDividerVertical-225,.sectionDividerVertical-250	{
+	width: 20px;
+	background-color: #fff;
+	float: left;
+	border-left: 1px solid #ccc;
+}
+
+.sectionDividerVertical-50	{
+	height: 50px;
+}
+
+.sectionDividerVertical-75	{
+	height: 75px;
+}
+
+.sectionDividerVertical-100	{
+	height: 100px;
+}
+
+.sectionDividerVertical-125	{
+	height: 125px;
+}
+
+.sectionDividerVertical-150	{
+	height: 150px;
+}
+
+.sectionDividerVertical-175	{
+	height: 175px;
+}
+
+.sectionDividerVertical-200	{
+	height: 200px;
+}
+
+.sectionDividerVertical-225	{
+	height: 225px;
+}
+
+.sectionDividerVertical-250	{
+	height: 250px;
+}
+
+.sectionContainerFullWidth	{
+	width: 920px;
+	float: left;
+}
+
+.sectionContainerHalfWidth	{
+	width: 449px;
+	float: left;
+}
+
+.sectionIcon	{
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-right: 10px;
+}
+
+.sectionOffsetHelper	{
+	width: 50px;
+	height: 20px;
+	float: left;
+	margin-right: 10px;
+}
+
+.sectionContent	{
+	width: 360px;
+	height: 90px;
+	float: left;
+}
+
+.sectionHeader	{
+	float: left;
+	max-width: 860px;
+}
+
+.sectionBasicTextFullWidth	{
+	width: 860px;
+	float: left;
+}
+
+.sectionBasicTextHalfWidth	{
+	width: 360px;
+	float: left;
+}
+
+.sectionBasicTable	{
+	clear: both;
+	padding-top: 10px;
+	width: 920px;
+	overflow: hidden;
+}
+
+.sectionDiagram	{
+	clear: both;
+	padding-top: 10px;
+	width: 920px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
+}
+
+.sectionScrollable	{
+	clear: both;
+	margin-left:58px;
+	width: 9999px;
+	overflow: auto;
+}
+
+.sectionScrollable2	{
+	float:left;
+	margin-left:58px;
+	overflow: auto;
+	width:860px;
+	position:relative; 
+}
+
+.sectionScrollableInner {
+    float:left;
+    margin-right:-32767px;/*Be safe with Opera's limited neg margin of -32767px*/
+    position:relative; 
+}
+
+.sectionCatalogue	{
+	clear: both;
+	padding-top: 10px;
+	width: 920px;
+}
+
+.sectionPortalPageText	{
+	width: 620px;
+	margin-bottom: 10px;
+}
+
+.sectionPortalPageRightPaneHeader	{
+	margin-bottom: 5px;
+}
+
+.sectionDependencyModel	{
+	float: left;
+	margin-left: 60px;
+	width: 540px;
+}
+
+/* @end */
+
+/* @group Feedback and History */
+
+#historyAlign	{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 435px;
+}
+
+#historyOverlay	{
+	width: 400px;
+	border-radius: 0 0 10px 10px;
+	border-style: solid;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	background: #fff;
+	position: absolute;
+	top: 130px;
+	z-index: 1000;
+	padding: 10px 10px 10px 20px;
+	-moz-box-shadow: 0px 5px 10px #ccc;
+	-webkit-box-shadow: 0px 5px 10px #ccc;
+	box-shadow: 0px 5px 10px #ccc;
+	behavior: url(media/PIE-htc.jsp);
+}
+
+#historyContent	{
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 150px;
+}
+
+#feedbackAlign	{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 518px;
+}
+
+#feedbackOverlay	{
+	width: 400px;
+	border-radius: 0 0 10px 10px;
+    border-style: solid;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	background: #fff;
+	position: absolute;
+	top: 130px;
+	z-index: 1000;
+	padding: 10px 20px 20px 20px;
+	-moz-box-shadow: 0px 5px 10px #ccc;
+	-webkit-box-shadow: 0px 5px 10px #ccc;
+	box-shadow: 0px 5px 10px #ccc;
+	behavior: url(media/PIE-htc.jsp);
+}
+
+
+#FeedbackFormNameBox	{
+	width: 395px;
+}
+
+#FeedbackFormList	{
+	width: 400px;
+}
+
+#FeedbackFormCommentBox	{
+	width: 395px;
+	height: 120px;
+}
+
+/* @end */
+
+#alViewNameContainer	{
+	margin-top: 5px;
+}
+
+ul.noMarginBottom	{
+	margin-bottom: 0px;
+}
+
+.largeRoundedContainer	{
+	border: 2px solid #ccc;
+	padding: 10px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+}
+
+.LRC_Header	{
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	background-color: #ccc;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.largeThinRoundedBox,.largeThinRoundedBox_FullWidth    {
+	border:1px dotted #aaa;
+	margin-bottom: 20px;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px;
+	background-color:white;
+	padding: 10px;
+	behavior: url(media/PIE-htc.jsp);
+	position: relative; /*required to enable PIE to function*/
+}
+
+.largeThinRoundedBox    {
+	margin-left: 50px;
+	width: 850px;
+}
+
+.largeThinRoundedBox_FullWidth    {
+	width: 900px;
+}
+
+.dottedBoxContainer {
+	width: 898px;
+	border:1px dotted #7fa8c3;
+	margin-bottom: 20px;
+	padding: 10px;
+	float: left;
+}
+
+.formContainer  {
+    float:left;
+    margin-right: 10px; 
+}
+
+.formLabel  {
+    font-weight:bold;
+    padding-bottom: 5px;  
+}
+
+.portalThumbnail	{
+	width: 120px;
+	height: 60px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	float: left;
+	margin-right: 20px;
+	behavior: url(media/PIE-htc.jsp);
+	position: relative; /*required to enable PIE to function*/
+}
+
+.portalPageSubHeader    {
+	padding: 5px;
+}
+
+.portalThumbnail:hover	{
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.swatch	{
+	width: 90px;
+	height: 90px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #eee;
+	float: left;
+	font-size: x-small;
+	padding: 5px;
+}
+
+#keyContainer,#keyContainer2,#keyContainer3   {margin-bottom: 25px; font-size: 90%;}
+
+.keyLabel       {margin-right: 15px; font-weight:bold; float:left;}
+.keySample      {margin-right: 5px; height:10px; width:10px; border: 1px solid #ddd; float:left; margin-top:1px}
+.keySampleWide      {margin-right: 5px; height:10px; width:20px; border: 1px solid #ddd; float:left; margin-top:1px}
+.keySampleLabel {margin-right: 15px; font-weight:bold; float:left;}
+.screenshotFrame    {
+    border: 2px solid #ddd;
+}
+
+
+
+.expandCircleSectionClosed {
+	height: 20px;
+	padding-left: 30px;
+	padding-top: 1px;
+	background: url('../images/expand_circle_closed.png') no-repeat left top;
+	cursor: pointer;
+}
+
+.expandCircleSectionOpen {
+	height: 20px;
+	padding-left: 30px;
+	padding-top: 1px;
+	background: url('../images/expand_circle_open.png') no-repeat left top;
+	cursor: pointer;
+}
+
+.expandCircle2SectionClosed {
+	width:20px;
+	height: 20px;
+	background: url('../images/expand_circle_closed.png') no-repeat left top;
+	cursor: pointer;
+	position:relative;
+	bottom: 3px;
+	padding-right: 3px;
+}
+
+.expandCircle2SectionOpen {
+	width:20px;
+	height: 20px;
+	background: url('../images/expand_circle_open.png') no-repeat left top;
+	cursor: pointer;
+	position:relative;
+	bottom: 3px;
+	padding-right: 3px;
+}
+
+.inset60	{
+	margin-left: 60px;
+}
+
+.fullWidthRoundBoxTop,.fullWidthRoundBoxBottom {
+   width: 900px;
+	padding: 10px; 
+}
+
+.insetWidthRoundBoxTop,.insetWidthRoundBoxBottom {
+   width: 840px;
+	padding: 10px; 
+}
+
+.fullWidthRoundBoxTop,.insetWidthRoundBoxTop	{
+	border-radius: 10px 10px 0px 0px;
+	border: 1px solid #ddd;
+}
+
+.fullWidthRoundBoxBottom,.insetWidthRoundBoxBottom	{
+	border-radius: 0px 0px 10px 10px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	
+}
+
+/* @group Programme Summary Specific */
+
+.ProgrammeContainer	{
+	width: 840px;
+	border: dotted 1px #ccc;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.ProgrammeDescriptionTitle	{
+	float: left;
+	margin-bottom: 2px;
+}
+
+.ProgrammeDescription	{
+	margin-left: 150px;
+}
+
+/* @end */
+
+.basicButton
+{
+    text-align:center;
+    padding:7px;
+    border:3px solid #fff;
+    border-radius:7px;
+    position:relative;
+    -moz-box-shadow:0px 2px 3px #ccc;
+    -webkit-box-shadow:0px 2px 3px #ccc;
+    box-shadow:0px 2px 3px #ccc;
+    behavior:url(media/PIE-htc.jsp);
+}
+
+.basicButton:hover
+{
+    background-color:#666
+}
+
+.basicButton:active
+{
+    background-color:#aaa
+}
+.loadingContainer{
+	width:100%;
+	height:10000px;
+	background-color:#eee;
+	float:left;
+	z-index:10000;
+}
+
+.loadingBox{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:200px;
+	width:600px;
+	text-align:center;
+}

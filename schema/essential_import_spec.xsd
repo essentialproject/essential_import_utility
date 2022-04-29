@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  xmlns:is="http://www.enterprise-architecture.org/essential/importutility/importspec"
+  xmlns:cm="http://www.enterprise-architecture.org/essential/importutility/common"
+  targetNamespace="http://www.enterprise-architecture.org/essential/importutility/importspec">
+  <xs:import schemaLocation="essential_import_common.xsd" namespace="http://www.enterprise-architecture.org/essential/importutility/common"/>
+  <xs:element name="SpreadsheetImportSpec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="is:GlobalInstances"/>
+        <xs:element ref="is:WorksheetInstances"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="is:WorksheetImportSpec"/>
+      </xs:sequence>
+      <xs:attribute name="import_schema_version" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GlobalInstances">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="cm:DerivedInstance"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorksheetInstances">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="cm:DerivedInstance"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorksheetImportSpec">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="cm:DerivedInstance"/>
+          <xs:element ref="cm:SimpleInstance"/>
+          <xs:element ref="cm:DeleteDerivedInstance"/>
+          <xs:element ref="cm:DeleteSimpleInstance"/>
+        </xs:choice>
+        <xs:element ref="is:WorksheetDescription"/>
+      </xs:sequence>
+      <xs:attribute name="firstRow" use="required" type="xs:integer"/>
+      <xs:attribute name="lastRow" use="required" type="xs:integer"/>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="sequenceNo" use="required" type="xs:integer"/>
+      <xs:attribute name="sheetNo" use="required" type="xs:integer"/>
+      <xs:attribute name="imported" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WorksheetDescription" type="xs:string"/>
+</xs:schema>

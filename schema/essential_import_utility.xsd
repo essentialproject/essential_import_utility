@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    xmlns:cn="http://www.enterprise-architecture.org/essential/importutility/config"
+    xmlns:cm="http://www.enterprise-architecture.org/essential/importutility/common"
+    targetNamespace="http://www.enterprise-architecture.org/essential/importutility/config">
+  <xs:import schemaLocation="essential_import_common.xsd" namespace="http://www.enterprise-architecture.org/essential/importutility/common"/>
+  <xs:element name="EssentialImportUtility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cn:ImportUtilityVersion"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:ImportEnvironments"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:GlobalValueTemplates"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:GlobalInstances"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:ImportActivities"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:ImportScriptTemplates"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:ExcelImportTemplates"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:SourceRepositories"/>
+        <xs:element ref="cn:ReferenceEnvironment"/>
+        <xs:element ref="cn:IncludesDirectoryPath"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportUtilityVersion" type="xs:string"/>
+  <xs:element name="IncludesDirectoryPath" type="xs:string"/>
+  <xs:element name="ImportChunkSize" type="xs:integer"/>
+  <xs:element name="ImportScriptTemplates" type="cn:ImportScriptTemplate"/>
+  <xs:element name="GlobalValueTemplates" type="cn:GlobalValueTemplate"/>
+  <xs:element name="ImportEnvironments" type="cn:ImportEnvironment"/>
+  <xs:element name="GlobalInstances" type="cm:DerivedInstanceType"/>
+  <xs:element name="ImportActivities" type="cn:ImportActivity"/>
+  <xs:element name="ReferenceEnvironment" type="cn:ImportEnvironment"/>
+  <xs:element name="ExcelImportTemplates" type="cn:ExcelImportTemplate"/>
+  <xs:element name="SourceRepositories" type="cn:SourceRepository"/>
+  <xs:complexType name="ImportScriptTemplate">
+    <xs:sequence>
+      <xs:element ref="cn:ImportScriptTemplateClassName"/>
+      <xs:element ref="cn:ImportScriptTemplateMode"/>
+      <xs:element ref="cn:ImportScriptTemplateString"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImportScriptTemplateClassName" type="xs:string"/>
+  <xs:element name="ImportScriptTemplateMode" type="xs:string"/>
+  <xs:element name="ImportScriptTemplateString" type="xs:string"/>
+  <xs:complexType name="ImportEnvironment">
+    <xs:sequence>
+      <xs:element ref="cn:ImportEnvironmentId" minOccurs="0"/>
+      <xs:element ref="cn:ImportEnvironmentName"/>
+      <xs:element ref="cn:ImportEnvironmentDescription"/>
+      <xs:element ref="cn:ImportEnvironmentRole"/>
+      <xs:element ref="cn:ImportEnvironmentDeploymentType"/>
+      <xs:element ref="cn:ImportEnvironmentLiveSource"/>
+      <xs:element ref="cn:ImportEnvironmentRepositoryPath"/>
+      <xs:element ref="cn:ImportEnvironmentLocalFolderName"/>
+      <xs:element ref="cn:ImportEnvironmentViewerURL"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="viewer_username" type="xs:string"/>
+    <xs:attribute name="viewer_password" type="xs:string"/>
+    <xs:attribute name="backupBefore" type="xs:boolean"/>
+    <xs:attribute name="usedAsReference" type="xs:boolean"/>
+    <xs:attribute name="lastUpdated" type="xs:dateTime"/>
+    <xs:attribute name="hostname" type="xs:string"/>
+    <xs:attribute name="username" type="xs:string"/>
+    <xs:attribute name="password" type="xs:string"/>
+    <xs:attribute name="projectName" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="ImportEnvironmentId" type="xs:string"/>
+  <xs:element name="ImportEnvironmentName" type="xs:string"/>
+  <xs:element name="ImportEnvironmentDescription" type="xs:string"/>
+  <xs:element name="ImportEnvironmentRole" type="xs:string"/>
+  <xs:element name="ImportEnvironmentDeploymentType" type="xs:string"/>
+  <xs:element name="ImportEnvironmentLiveSource" type="xs:string"/>
+  <xs:element name="ImportEnvironmentRepositoryPath" type="xs:string"/>
+  <xs:element name="ImportEnvironmentLocalFolderName" type="xs:string"/>
+  <xs:element name="ImportEnvironmentViewerURL" type="xs:string"/>
+  <xs:complexType name="GlobalValueTemplate">
+    <xs:sequence>
+      <xs:element ref="cn:GlobalValueTemplateClass"/>
+      <xs:element ref="cn:GlobalValueTemplateSlot"/>
+      <xs:element ref="cn:GlobalValueTemplateValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlobalValueTemplateClass" type="xs:string"/>
+  <xs:element name="GlobalValueTemplateSlot" type="xs:string"/>
+  <xs:element name="GlobalValueTemplateValue" type="cm:DerivedValue"/>
+  <xs:complexType name="ImportActivity">
+    <xs:sequence>
+      <xs:element ref="cn:ImportActivityName"/>
+      <xs:element ref="cn:ImportActivityType"/>
+      <xs:element ref="cn:ImportActivityStatus"/>
+      <xs:element ref="cn:ImportActivityDescription"/>
+      <xs:element ref="cn:ImportActivitySourceRepository"/>
+      <xs:element ref="cn:ImportActivityModifiedDate"/>
+      <xs:element ref="cn:ImportActivityTestedDate"/>
+      <xs:element ref="cn:ImportActivityToLiveDate"/>
+      <xs:element ref="cn:ImportActivityRootDirName"/>
+      <xs:element ref="cn:SpreadsheetImportSpecFilename"/>
+      <xs:element ref="cn:SpreadsheetFilename"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="cn:ImportActivityLogs"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="logImports" type="xs:boolean" default="false"/>
+  </xs:complexType>
+  <xs:element name="ImportActivityName" type="xs:string"/>
+  <xs:element name="ImportActivityType" type="xs:string"/>
+  <xs:element name="ImportActivityStatus" type="xs:string"/>
+  <xs:element name="ImportActivityDescription" type="xs:string"/>
+  <xs:element name="ImportActivitySourceRepository" type="xs:string"/>
+  <xs:element name="ImportActivityModifiedDate" type="xs:dateTime"/>
+  <xs:element name="ImportActivityTestedDate" type="xs:dateTime"/>
+  <xs:element name="ImportActivityToLiveDate" type="xs:dateTime"/>
+  <xs:element name="ImportActivityRootDirName" type="xs:string"/>
+  <xs:element name="SpreadsheetImportSpecFilename" type="xs:string"/>
+  <xs:element name="SpreadsheetFilename" type="xs:string"/>
+  <xs:element name="ImportActivityLogs" type="cn:ImportActivityLog"/>
+  <xs:complexType name="ImportActivityLog">
+    <xs:sequence>
+      <xs:element ref="cn:LogUser"/>
+      <xs:element ref="cn:LogFolderPath"/>
+      <xs:element ref="cn:LogSourceRepositoryPath"/>
+      <xs:element ref="cn:LogOutputLogPath"/>
+      <xs:element ref="cn:LogImportSpecPath"/>
+      <xs:element ref="cn:LogImportScriptPath"/>
+      <xs:element ref="cn:LogUpdatedRepositoryPath"/>
+      <xs:element ref="cn:LogTargetEnvName"/>
+      <xs:element ref="cn:LogTargetEnvType"/>
+    </xs:sequence>
+    <xs:attribute name="logCreationTime" type="xs:dateTime"/>
+    <xs:attribute name="logLastUpdatedTime" type="xs:dateTime"/>
+    <xs:attribute name="logActivityStatus" type="xs:string"/>
+    <xs:attribute name="logActivityType" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="LogUser" type="xs:string"/>
+  <xs:element name="LogFolderPath" type="xs:string"/>
+  <xs:element name="LogSourceRepositoryPath" type="xs:string"/>
+  <xs:element name="LogOutputLogPath" type="xs:string"/>
+  <xs:element name="LogImportSpecPath" type="xs:string"/>
+  <xs:element name="LogImportScriptPath" type="xs:string"/>
+  <xs:element name="LogUpdatedRepositoryPath" type="xs:string"/>
+  <xs:element name="LogTargetEnvName" type="xs:string"/>
+  <xs:element name="LogTargetEnvType" type="xs:string"/>
+  <xs:complexType name="ExcelImportTemplate">
+    <xs:sequence>
+      <xs:element ref="cn:ExcelImportTemplateName"/>
+      <xs:element ref="cn:ExcelImportTemplateDescription"/>
+      <xs:element ref="cn:ExcelImportTemplateRootDirName"/>
+      <xs:element ref="cn:ExcelImportTemplateExcelFilename"/>
+      <xs:element ref="cn:ExcelImportTemplateImportSpecFilename"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExcelImportTemplateName" type="xs:string"/>
+  <xs:element name="ExcelImportTemplateDescription" type="xs:string"/>
+  <xs:element name="ExcelImportTemplateExcelFilename" type="xs:string"/>
+  <xs:element name="ExcelImportTemplateImportSpecFilename" type="xs:string"/>
+  <xs:element name="ExcelImportTemplateRootDirName" type="xs:string"/>
+  <xs:complexType name="SourceRepository">
+    <xs:sequence>
+      <xs:element ref="cn:SourceRepositoryName"/>
+      <xs:element ref="cn:SourceRepositoryDescription"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="SourceRepositoryName" type="xs:string"/>
+  <xs:element name="SourceRepositoryDescription" type="xs:string"/>
+</xs:schema>

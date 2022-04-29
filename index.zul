@@ -1,0 +1,81 @@
+<?page title="Essential Import Utility" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014-2017 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.5.1.min.js" ?>
+<zk>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<script type="text/javascript" src="/js/importutility_uifunctions.js"/>
+	<script type="text/javascript" src="/js/samlLoginJS.js"/>
+	<window id="loginWindow" apply="com.enterprise_architecture.essential.importutility.ui.LoginComposer" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+		<include src="/essential_header.zul"/>
+		<div class="loginLeft"/>
+		<div class="loginRight">
+			<vlayout>
+				<label sclass="xxlarge fontLight" value="Login"/>
+				<label sclass="strong" value="Please enter login details"/>
+				<hlayout>
+					<div hflex="3">
+						<label sclass="strong" value="Tenant" id="tenantTxtBoxLabel"/>
+					</div>
+					<div hflex="15">
+						<textbox id="tenantTxtBox"/>
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex="3">
+						<label sclass="strong" value="Email"/>
+					</div>
+					<div hflex="15">
+						<textbox id="emailTxtBox"/>
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex="3">
+						<label sclass="strong" value="Password"/>
+					</div>
+					<div hflex="15">
+						<textbox id="passwordTxtBox" type="password"/>
+					</div>
+				</hlayout>
+				<hlayout spacing="10px">
+					<div hflex="3">
+						<label sclass="strong" value="Remember Me?" id="rememberMeLabel"/>
+					</div>
+					<div hflex="15">
+						<checkbox id="rememberUserCkBox"/>
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex="3">
+						<button id="loginBtn" label="Login" type="submit"/>
+					</div>
+				</hlayout>
+				<hlayout>
+					<div hflex="3" style="border-bottom: 1px solid #ccc;"/>
+				</hlayout>
+				<hlayout>
+					<div hflex="3">
+						<button id="samlLogin" label="Sign in with your company account" onClick="Clients.evalJavaScript(&quot;samlLogin()&quot;)"/>
+					</div>
+				</hlayout>
+			</vlayout>
+		</div>
+		<include src="/essential_footer.zul"/>
+	</window>
+</zk>

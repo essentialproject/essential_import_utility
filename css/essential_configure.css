@@ -1,0 +1,143 @@
+/*Set default font for common text elements*/ 
+body,p,ul,ol,dl,input,textarea {font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+th,strong   {font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;}
+
+/*Configure link style*/
+a {color: #0171c0; text-decoration: none; }
+
+/*Setup default font for extra-bold text*/
+.fontBlack	{font-family: "GillSans-Bold", "Arial Black";}
+
+/*Set header elements - recommend not changing sizes and spacings unless updated fonts affect this*/
+h1,h2,h3,h4,h5,h6,#viewName,#altViewName,#siteTitle,#viewSubTitle {font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;}
+.siteTitleRightLinkText {font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;}
+h1 {font-size: 175%; font-weight: 300; color: #c3193c; letter-spacing: 2px; padding-bottom: 7px;}
+h2 {font-size: 125%; padding-bottom: 5px; color: #d6771c; letter-spacing: 2px; font-family: OpenSansBold,"GillSans-Bold", "Arial Black";}
+h3 {font-size: 100%; font-weight: 600; display: inline; padding-bottom: 5px; text-transform: uppercase;}
+h4 {font-size: 100%; font-weight: 600; padding-top: 5px; padding-bottom: 5px; color: #555;}
+h5 {font-size: 125%; font-weight: 300;text-transform: uppercase; letter-spacing: 2px; padding-bottom: 5px;}
+h6 {font-size: 110%; font-family: "Source Sans Pro", Helvetica, Arial, sans-serif; font-weight: 300; letter-spacing: 1px; padding-bottom: 5px;}
+
+/*Setup text colours*/
+
+.textColour1	{color: #c3193c;}
+.textColour2	{color: #d6771c;}
+.textColour3	{color: #42284f;}
+.textColour4	{color: #0171c0;}
+.textColour5	{color: #333;}
+.textColour6	{color: #777;}
+.textColour7	{color: #fff;}
+.textColour8	{color: #a9c66f;}
+.textColour9	{color: #6593c8;}
+
+.textColourRed	    {color: #ba2401;}
+.textColourOrange	{color: #e3a131;}
+.textColourYellow   {color: #ecd100;}
+.textColourGreen	{color: #4f8956;}
+
+/*Text Highlights for RAG statuses*/
+.ragTextRed,.backColourRed		{background-color: #ba2401; color: white;}
+.ragTextOrange,.backColourOrange	{background-color: #e3a131; color: white;}
+.ragTextYellow,.backColourYellow	{background-color: #ecd100; color: white;}
+.ragTextLightGreen,.backColourLightGreen	{background-color: #4dd175; color: white;}
+.ragTextGreen,.backColourGreen	{background-color: #4f8956; color: white;}
+.ragTextGrey,.backColourGrey	{background-color: #aaa; color: white;}
+.ragTextBlue,.backColourBlue	{background-color: #0a67c3; color: white;}
+.ragTextLightBlue,.backColourLightBlue	{background-color: #8aa7c3; color: white;}
+
+/*Setup background colours*/
+
+.backColour1	{background-color: #c3193c;}
+.backColour2	{background-color: #d6771c;}
+.backColour3	{background-color: #42284f;}
+.backColour4	{background-color: #8b8096;}
+.backColour5	{background-color: #444;}
+.backColour6	{background-color: #aaa;}
+.backColour7	{background-color: #fff;}
+.backColour8	{background-color: #f8a85c;}
+.backColour9	{background-color: #6593c8;}
+.backColour10	{background-color: #a9c66f;}
+.backColour11	{background-color: #cc9999;}
+.backColour12	{background-color: #eee;}
+.backColour13	{background-color: #bdd0e5;}
+.backColour14	{background-color: #0171c0;}
+.backColour15	{background-color: #bbb;}
+.backColour16   {background-color: #e4e1cc;}
+.backColour17   {background-color: #c2d5ec;}
+
+/*Setup Special Cell Colours - handy for catalogues*/
+
+th.cellColour1,td.cellColour1	{background-color: #c3193c;}
+th.cellColour2,td.cellColour2	{background-color: #1773b1;}
+th.cellColour3,td.cellColour3	{background-color: #42284f;}
+th.cellColour4,td.cellColour4	{background-color: #8b8096;}
+th.cellColour5,td.cellColour5	{background-color: #666;}
+th.cellColour6,td.cellColour6	{background-color: #aaa;}
+th.cellColour6,td.cellColour7	{background-color: #eee;}
+
+/*Setup some basic table styles*/
+.tableStyle1 th	{background-color: #c3193c;}
+.tableStyle2 th	{background-color: #bbbbbb;}
+.tableStyle3 th	{background-color: #42284f;}
+.tableStyle4 th	{background-color: #8b8096;}
+.tableStyle5 th	{background-color: #7fa8c3;}
+.tableStyle6 th	{background-color: #ffc564;}
+.tableStyle7 th	{background-color: #cc9999;}
+th.crudSpacerCol,td.crudSpacerCol,td.crudSpacerRow    {background-color: #fff;}
+th.tableStyleMatrixCorner	{background-color: #fff; border: 1px solid #fff; padding:0px;}
+
+/*Setup gradient shades of grey*/
+.gradLevel0	{background-color: #fff;}
+.gradLevel1	{background-color: #eee;}
+.gradLevel2	{background-color: #ccc;}
+.gradLevel3	{background-color: #aaa;}
+.gradLevel4	{background-color: #777;}
+.gradLevel5	{background-color: #444;}
+
+/*Setup gradient shades of purple*/
+.gradLevelAlt0	{background-color: #fff;}
+.gradLevelAlt1	{background-color: #e5d2ff;}
+.gradLevelAlt2	{background-color: #ad70ff;}
+.gradLevelAlt3	{background-color: #662cb3;}
+.gradLevelAlt4	{background-color: #3c0782;}
+.gradLevelAlt5	{background-color: #230051;}
+
+/*Define the logo for the site - Default is Essential Project logo - Can be used for company logo. Max Height of logo is 60px. Max Width 600px*/
+#siteHeaderCompanyLogo	{
+	background-image: url(../images/essentialprojectlogo_200.png);
+}
+
+/*Define the portal name - default is Essential Viewer graphic - either replace with graphic (white text on transparent background or adjust the ev3_header file located in the Common folder to add the portal name and comment out this style*/
+#siteTitleMainContainerContent	{
+	background: url(../images/essential_viewer_logo.png) no-repeat 0 bottom;
+}
+
+/*Use padding-top to adjust the positioning of the Portal Name. The total height (height + padding) must equal 40px*/
+#siteTitleMainContainer,#siteTitleMainContainerContent {
+	height: 40px;
+	/*padding-top: 7px;*/
+}
+
+/*Adjust the settings for the portal name if not using an image*/
+#siteTitle {color: #fff; font-size: 250%; font-weight: 300; letter-spacing: 4px;}
+
+/*Defines the colour for the top curved header*/
+#siteTitleCurve,#siteTitleMainContainer,#siteTitleRightLinksContainer{
+	background-color: #be2748;	
+	/*You can the tools at http://westciv.com/tools/gradientsnustyle/index.html to help build the gradients or remove the settings below and just use a solid colour. IE9 and below uses the -pie-background attribute to render gradients*/
+	background-image: -moz-linear-gradient(top , #dc567a, #be2748 15px);
+	background-image: -webkit-linear-gradient(top , #dc567a, #be2748 15px);
+	background-image: -o-linear-gradient(top , #dc567a, #be2748 15px);
+	background-image: -ms-linear-gradient(top , #dc567a, #be2748 15px);
+	background-image: linear-gradient(top , #dc567a, #be2748 15px);
+	-pie-background: linear-gradient(top, #dc567a, #be2748 15px);
+	behavior: url(media/PIE-htc.jsp);
+	position: relative; /*required to enable PIE to function*/
+}
+
+/*Set the border colour for the History and Feedback Panels - Typically the same as the Site Title Curve above*/
+#historyOverlay,#feedbackOverlay	{
+	border-color: #be2748;
+}

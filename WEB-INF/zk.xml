@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE zk>
+<!-- Created by ZK Studio -->
+
+<?script src="/js/jquery-3.5.1.min.js" ?><zk>
+	<session-config>
+		<session-timeout>64800</session-timeout>
+		<timer-keep-alive>true</timer-keep-alive>
+	</session-config>
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/timeout.zul</timeout-uri>
+		<!-- An empty URL can cause the 
+			browser to reload the same URL -->
+	</device-config>
+	<desktop-config>
+		<theme-uri>css/essential_import_styles.css</theme-uri>
+	</desktop-config>
+	<library-property>
+		<name>org.zkoss.zul.progressbox.position</name>
+		<value>center, center</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeM</name>
+		<value>14px</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeS</name>
+		<value>12px</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontSizeXS</name>
+		<value>10px</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontFamilyT</name>
+		<value>'Source Sans Pro', Helvetica, Arial,, sans-serif;</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.theme.fontFamilyC</name>
+		<value>'Source Sans Pro', Helvetica, Arial,, sans-serif;</value>
+	</library-property>
+	<library-property>
+	<name>org.zkoss.zul.Button.mold</name>
+	<value>bs</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.Menupopup.mold</name>
+		<value>bs</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zkmax.zul.Navbar.mold</name>
+		<value>bs</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.Paging.mold</name>
+		<value>bs</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zul.Panel.mold</name>
+		<value>bs</value>
+	</library-property>
+	<library-property>
+	    <name>org.zkoss.theme.preferred</name>
+	    <value>zk-bootstrap</value>
+	</library-property>
+</zk>
