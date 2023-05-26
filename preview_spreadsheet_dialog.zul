@@ -17,7 +17,7 @@
 * You should have received a copy of the GNU General Public License
 * along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<?script src="/js/jquery-3.5.1.min.js" ?>
+<?script src="/js/jquery-3.6.0.min.js" ?>
 <zk>
 	<window width="80%" height="90%" id="previewSSDialog" title="Preview Spreadsheet" closable="true" sizable="true" position="center" border="normal">
 		<div width="100%" apply="com.enterprise_architecture.essential.importutility.ui.PreviewSpreadsheetComposer">

@@ -2,7 +2,7 @@
 <!DOCTYPE zk>
 <!-- Created by ZK Studio -->
 
-<?script src="/js/jquery-3.5.1.min.js" ?><zk>
+<?script src="/js/jquery-3.6.0.min.js" ?><zk>
 	<session-config>
 		<session-timeout>64800</session-timeout>
 		<timer-keep-alive>true</timer-keep-alive>

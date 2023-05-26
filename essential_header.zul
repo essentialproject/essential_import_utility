@@ -1,9 +1,9 @@
-<?script src="/js/jquery-3.5.1.min.js" ?>
+<?script src="/js/jquery-3.6.0.min.js" ?>
 <zk>
 	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
 	
 	<div sclass="headerContainer" apply="com.enterprise_architecture.essential.importutility.ui.LogoutComposer">
-		<a href="home.zul">
+		<a href="/">
 			<div class="headerLogo" />
 		</a>
 		<div class="headerRightLinks small" align="right">

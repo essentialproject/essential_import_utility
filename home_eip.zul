@@ -16,7 +16,7 @@
 * You should have received a copy of the GNU General Public License
 * along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<?script src="/js/jquery-3.5.1.min.js" ?>
+<?script src="/js/jquery-3.6.0.min.js" ?>
 <zk>
 
 
@@ -241,7 +241,6 @@
 					<div>
 						<html><![CDATA[
 							<p class="large">Allows the configuration of the Essential Import Utility to be exported as a backup and restored to another instance or version.</p>
-							<p>This can be useful during server migration, version upgrades or as general backup of the Import Utility</p>
 							<p>
 								<strong>Export</strong> the configuration from the environment that you wish to migrate. This is delivered as a package that is downloaded and can be moved between systems.
 								<br/>
@@ -249,12 +248,9 @@
 							</p>
 							<p>The configuration package consists the following components:</p>
 							<ul>
-								<li>User configuration</li>
-								<li>Configuration of the import activities and their source and target repositories</li>
+								<li>Configuration of the import activities</li>
 								<li>The logs and history of all import activities that have been tested and executed on the source instance of Essential Import Utility</li>
-							</ul>
-							<p>When a configuration is imported, the current configuration is saved to the "/configBackup" folder in a time-stamped archive. This can itself be imported to roll back the migration. 
-							</p>]]>
+							</ul>]]>
 						</html>
 						<hlayout spacing="10px">
 							<button id="backupConfigBtn" label="Export Configuration"/>

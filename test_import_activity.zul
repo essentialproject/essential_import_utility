@@ -17,7 +17,7 @@
 * You should have received a copy of the GNU General Public License
 * along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<?script src="/js/jquery-3.5.1.min.js" ?>
+<?script src="/js/jquery-3.6.0.min.js" ?>
 <zk>
 	<window id="testLocalImportWindow" title="Test Excel Import" width="900px" border="normal" apply="com.enterprise_architecture.essential.importutility.ui.TestImportActivityComposer" closable="false">
 		<timer id="importStatusTimer" delay="1000" repeats="true" running="false"/>
