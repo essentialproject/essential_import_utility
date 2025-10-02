@@ -1,0 +1,35 @@
+<?page title="Run Excel Import" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<window width="100%" id="quickStartGuide">
+		<include src="/essential_header.zul" />
+		<div width="100%">
+			<vlayout>
+				<div>
+					<label value="Quick Start Guide" class="sectionLabel" />
+				</div>
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget cursus mauris. Maecenas eleifend iaculis ligula tempus tincidunt. Nunc mollis lobortis aliquam. Duis imperdiet mattis porta. Donec non facilisis est. Suspendisse fermentum varius pellentesque. Duis rhoncus porta tellus ac venenatis. Cras interdum nulla ut mi malesuada bibendum. Duis vel turpis purus, vel malesuada dolor. Phasellus elit diam, fringilla quis rutrum in, egestas quis augue. Nullam malesuada congue molestie. Proin condimentum nisi ac magna egestas egestas consectetur mauris venenatis. Sed accumsan, erat ac condimentum lacinia, lorem odio venenatis tellus, vitae lobortis purus tortor et justo. </div>
+			</vlayout>
+		</div>
+		<include src="/essential_footer.zul" />
+	</window>
+</zk>

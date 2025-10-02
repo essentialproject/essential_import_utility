@@ -1,0 +1,97 @@
+<?page title="Global Value Template" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<window id="valueTemplateWindow" title="New Global Value Template" border="normal" width="700px" closable="true" apply="com.enterprise_architecture.essential.importutility.ui.GlobalValueTemplatesComposer" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+		<vlayout spacing="10px">
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Template Class Name"/>
+				</div>
+				<div hflex="5">
+					<combobox autodrop="true" hflex="1" id="classNameTxtBox"/>
+					<!-- <textbox id="classNameTxtBox" hflex="1" constraint="no empty"/> -->
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Template Slot Name"/>
+				</div>
+				<div hflex="5">
+					<listbox hflex="1" id="slotNameListBox" rows="1" mold="select"/>
+					<!-- <textbox id="slotNameTxtBox" hflex="1" constraint="no empty"/>  -->
+				</div>
+			</hlayout>
+			<separator/>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Value Template"/>
+				</div>
+				<div hflex="5" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Define the sequence of fixed strings and references"/>
+				</div>
+			</hlayout>
+			<vlayout spacing="10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Fixed Text"/>
+					</div>
+					<div hflex="5">
+						<hlayout sclass="z-valign-top">
+							<textbox id="fixedTxtBox" width="200px"/>
+							<button id="addTxtBtn" width="80px" label="Add Text"/>
+							<button id="addRefBtn" width="80px" label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Segments"/>
+					</div>
+					<div hflex="5">
+						<hlayout sclass="z-valign-top">
+							<listbox class="small" id="segmentsListBox" rows="6" width="200px"> </listbox>
+							<vlayout>
+								<button id="segmentUpBtn" width="160px" label="Up"/>
+								<button id="segmentDownBtn" width="160px" label="Down"/>
+								<button id="delSegBtn" width="160px" label="Delete Segment"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top">
+					<div hflex="3" align="right" class="right-15">
+						<label class="small italic" value="Template"/>
+					</div>
+					<div hflex="5">
+						<hlayout sclass="z-valign-top">
+							<label class="strong italic" id="templateLabel" value="[REF] as [REF]"/>
+						</hlayout>
+					</div>
+				</hlayout>
+			</vlayout>
+			<div align="right">
+				<button class="btn-success right-10" id="okBtn" width="80px" label="OK" autodisable="+self"/>
+				<button class="btn-danger" id="cancelBtn" width="80px" label="Cancel"/>
+			</div>
+		</vlayout>
+
+	</window>
+</zk>

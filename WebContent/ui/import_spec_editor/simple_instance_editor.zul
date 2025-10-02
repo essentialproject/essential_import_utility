@@ -1,0 +1,106 @@
+<!-- 
+* Copyright (c)2015 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+ 
+ <?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<div id="simpleInstEditorDiv" style="margin:10px;" apply="com.enterprise_architecture.essential.importutility.ui.editors.SimpleInstanceEditorComposer">
+		<vlayout spacing="15px">
+			<hlayout sclass="z-valign-top" spacing="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Instance Variable Name" tooltip="varName"/>
+				</div>
+				<div hflex="15">
+					<textbox id="varNameTxtBox"  hflex="1"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Essential Class Name" tooltip="className"/>
+				</div>
+				<div hflex="15">
+					<combobox autodrop="true" hflex="1" id="classNameTxtBox" />
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Instance Match Mode" tooltip="matchMode"/>
+				</div>
+				<div hflex="15">
+					<listbox id="matchingModeListBox" mold="select" rows="1" width="150px">
+						<listitem label="Match by Name" selected="true"/>
+						<listitem label="Match by External ID"/>
+					</listbox>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Instance Match Column" tooltip="matchColumn"/>
+				</div>
+				<div hflex="15">
+					<textbox id="instanceIDTxtBox"  width="50px"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;cursor:help;" value="Instance Name Column" tooltip="instName"/>
+				</div>
+				<div hflex="15">
+					<textbox id="instanceNameTxtBox" width="50px"/>
+				</div>
+			</hlayout>
+		</vlayout>
+		<popup id="varName" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Instance Variable Name</label>
+			</div>
+			<div>A unique name for the variable in the context of this worksheet in the selected import specification. This is used when building relationships between instance throughout the worksheet.</div>
+		</popup>
+		<popup id="className" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Essential Class Name</label>
+			</div>
+			<div>Defines the type of instance this column contains.</div>
+		</popup>
+		<popup id="matchMode" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Instance Match Mode</label>
+			</div>
+			<div>Method by which the instance the spreadsheet are matched to those in the target repository.</div>
+			<div><label style="font-weight: bold">ByID</label> – matches by a unique identifier defined in the spreadsheet which can be different to the internal repository ID. Useful when the name of the instance in the spreadsheet needs to change. Note: these IDs must not be reused.</div>
+			<div><label style="font-weight: bold">ByName</label> – matches by the name of the object defined in the spreadsheet. Note: if the name of the object changes, an additional object will be created and two objects will exist in the repository.</div>
+			<div><label style="font-weight: bold">ByInternalID</label> – matches by internal repository ID. Typically used when an export of the repository has been created and you intend to re-import the content with additional changes. Matches by repository ID if exists or generates a new repository ID for objects that do not match.</div>
+			<div><label style="font-weight: bold">New</label> – forces the creation on a new object on each import regardless of whether a similar or identical object already exists.</div>
+		</popup>
+		<popup id="matchColumn" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Match Column</label>
+			</div>
+			<div>The column in the source worksheet which contains the value that should be used by the instance matching process.</div>
+			<div>If matching <label style="font-weight:bold;">ByID</label> then this would be the ID column.</div>
+			<div>If matching <label style="font-weight:bold;">ByName</label> then this would be the name column. </div>
+			<div>If matching <label style="font-weight:bold;">ByInternalID</label> then this would be the column which contains the repository internal IDs.</div>
+		</popup>
+		<popup id="instName" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Instance Name Column</label>
+			</div>
+			<div>The column in the source worksheet which contains the name of the instance.</div>
+		</popup>
+	</div>
+</zk>

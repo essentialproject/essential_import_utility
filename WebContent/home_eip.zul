@@ -1,0 +1,298 @@
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+
+
+	<zscript deferred="true"><![CDATA[
+    import org.zkoss.util.media.Media;
+    import org.zkoss.zk.ui.event.Events;
+ 
+    public void uploadConfigFile(Media[] configFile) {
+		
+		if (configFile.length > 0) 
+	        {
+	        	Media configArchive = configFile[0];
+	        	
+	        	if(!configArchive.getName().endsWith("eic")) 
+	        	{
+	        		try 
+	        		{
+		        		Messagebox.show("An Essential Import Configuration (eic) file must be selected", "Invalid File Type", Messagebox.OK, Messagebox.ERROR);
+		        		return;
+	        		} 
+	        		catch(Exception e) 
+	        		{
+	        			e.printStackTrace();
+	        		}
+	        	}
+	        	
+	        	appHomeWin.setAttribute("uploadedConfig", configArchive);
+	        	
+	        	//notify the composer that the file has been uploaded
+	        	Events.sendEvent("onConfigPackageUpload", appHomeWin, null);
+	        }
+    	
+    }
+   
+]]></zscript>
+
+	<?page id="appHome" title="Essential Import Utility"?>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<script type="text/javascript" src="/js/importutility_uifunctions.js"/>
+
+	<!-- Analytics code goes in here -->
+	<script type="text/javascript">
+		function getCookie(key) {
+			var re = new RegExp(key + "=([^;]+)");
+			var value = re.exec(document.cookie);
+			return (value != null) ? unescape(value[1]) : null;
+		}
+		if (tenant = getCookie("tenant")) {
+			userTenant = tenant;
+		}
+        var _paq = _paq || [];
+        var userTrack = tenant+'.user';
+          _paq.push(["setDomains", ["*.essentialintelligence.com"]]);
+          _paq.push(['setUserId', userTrack]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          _paq.push(['setSecureCookie', true]);
+          (function() {
+            var u="https://e-asolutions.net/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+    </script>
+	<!-- End of analytics code -->
+
+	<window style="padding: 0;" id="appHomeWin">
+		<include src="/essential_header.zul"/>
+		<separator spacing="10px"/>
+		<tabbox>
+			<tabs>
+				<tab label="${labels.homepage.manageImportsTabHeading}"/>
+				<tab id="importSettingsTabHeader" label="${labels.homepage.importSettingsTabHeading}"/>
+				<tab id="systemSettingsTabHeader" label="${labels.homepage.systemSettingsTabHeading}"/>
+				<tab label="Integration"/>
+			</tabs>
+			<tabpanels>
+				<tabpanel apply="com.enterprise_architecture.essential.importutility.ui.ManageImportActivityListComposer">
+					<div class="pull-left">
+						<label value="${labels.manageImportsTab.pageHeading}" class="sectionLabel"/>
+					</div>
+					<div class="pull-right">
+						<div class="btn-group">
+							<button label="${labels.manageImportsTab.newImportActivityButton}" id="newImpBtn"/>
+							<button label="${labels.manageImportsTab.openButton}" id="openImpBtn"/>
+							<button label="${labels.manageImportsTab.editButton}" id="editImpBtn"/>
+							<button label="${labels.manageImportsTab.deleteButton}" id="delImpBtn"/>
+						</div>
+					</div>
+					<div class="clearfix bottom-10"/>
+
+					<hlayout>
+						<listbox id="impActListbox" rows="6" hflex="1">
+							<listhead sizable="true">
+								<listheader label="${labels.manageImportsTab.importListNameColumn}" width="15%"/>
+								<listheader label="${labels.manageImportsTab.importListTypeColumn}" width="10%"/>
+								<listheader label="${labels.manageImportsTab.importListDescriptionColumn}" width="29%"/>
+								<listheader label="${labels.manageImportsTab.importListStatusColumn}" width="10%"/>
+								<listheader label="${labels.manageImportsTab.importListLastModifiedColumn}" width="12%"/>
+								<listheader label="${labels.manageImportsTab.importListLastTestedColumn}" width="12%"/>
+								<!--<listheader label="${labels.manageImportsTab.importListLastExecutedColumn}" width="12%"/>-->
+							</listhead>
+						</listbox>
+					</hlayout>
+				</tabpanel>
+
+				<tabpanel id="importSettingsTab" apply="com.enterprise_architecture.essential.importutility.ui.ImportSettingsComposer">
+
+					<!--Source Repos Section-->
+					<div class="pull-left">
+						<label id="sourceRepLabel" value="Source Repositories" class="sectionLabel"/>
+					</div>
+					<div class="pull-right">
+						<div class="btn-group">
+							<button label="New..." id="newRepBtn"/>
+							<button label="Edit..." id="editRepBtn"/>
+							<button label="Delete" id="delRepBtn"/>
+						</div>
+					</div>
+					<div class="clearfix bottom-10"/>
+					<hlayout>
+						<listbox id="sourceRepListBox" rows="4" hflex="1">
+							<listhead sizable="true">
+								<listheader label="Source Name" width="30%" sort="auto(sourceRepositoryName)"/>
+								<listheader label="Description" width="70%"/>
+							</listhead>
+						</listbox>
+					</hlayout>
+					<separator spacing="30px"/>
+					
+					<!--Target Envs Section-->
+					<div>
+						<label id="lbl1" value="Reference Repositories" class="sectionLabel"/>
+						<div>Select a reference repository. This is used when performing a lookup of meta-model Classes and Slots.</div>
+					</div>
+					<zscript>
+						<!-- Can remove this once the Composer is coded up -->
+				        <![CDATA[
+				        String[] userName = { "Tony", "Ryan", "Jumper", "Wing", "Sam" };
+				        ListModelList model = new ListModelList(userName);
+					    ]]>
+					</zscript>
+				    <!-- <selectbox model="${model}" onSelect="alert(model.get(event.getData()));" class="top-10">
+				        <template name="model">				        	
+				            Name is ${each}
+				        </template>
+				    </selectbox> -->
+					<div class="pull-right">
+						<div class="btn-group">
+							<button label="New..." id="newRepoBtn"/>
+							<button label="Edit..." id="editEnvBtn"/>
+							<button label="Delete" id="delEnvBtn"/>
+						</div>
+					</div>
+					<div class="clearfix bottom-10"/>
+					<hlayout>
+						<listbox id="targetEnvListBox" rows="4" hflex="1">
+							<listhead sizable="true">
+								<listheader label="Reference?" width="10%"/>
+								<listheader label="Environment Name" width="40%" sort="auto(importEnvironmentName)"/>
+								<listheader label="Description" width="50%"/>
+							</listhead>
+						</listbox>
+					</hlayout>
+					<separator spacing="30px"/>
+
+					<!--Value Templates Section-->
+					<div class="pull-left">
+						<label id="lbl2" value="Value Templates" class="sectionLabel"/>
+					</div>
+					<div class="pull-right">
+						<div class="btn-group">
+							<button label="New..." id="newValTempBtn"/>
+							<button label="Edit..." id="editValTempBtn"/>
+							<button label="Delete" id="delValTempBtn"/>
+						</div>
+					</div>
+					<div class="clearfix bottom-10"/>
+					<hlayout>
+						<listbox id="valueTemplateListBox" rows="4" hflex="1">
+							<listhead sizable="true">
+								<listheader label="Class" width="25%" sort="auto(globalValueTemplateClass)"/>
+								<listheader label="Slot" width="25%" sort="auto(globalValueTemplateSlot)"/>
+								<listheader label="Value Template" width="50%"/>
+							</listhead>
+						</listbox>
+					</hlayout>
+					<separator spacing="30px"/>
+
+					<!--Global Instances Section-->
+					<div>
+						<div class="pull-left">
+							<label id="globalInst" value="Global Instances" class="sectionLabel"/>
+						</div>
+						<div class="pull-right">
+							<div class="btn-group">
+								<button label="New..." id="newGlobInstBtn"/>
+								<button label="Edit..." id="editGlobInstBtn"/>
+								<button label="Delete" id="delGlobInstBtn"/>
+							</div>
+						</div>
+						<div class="clearfix bottom-10"/>
+					</div>
+					<hlayout>
+						<listbox id="globalInstListBox" rows="4" hflex="1">
+							<listhead sizable="true">
+								<listheader label="Import Variable Name" width="25%" sort="auto(variableName)"/>
+								<listheader label="Essential Class Name" width="25%" sort="auto(className)"/>
+								<listheader label="Essential Instance Name" width="50%"/>
+							</listhead>
+						</listbox>
+					</hlayout>
+					<separator spacing="30px"/>
+				</tabpanel>
+
+				<tabpanel id="systemSettingsTabs" apply="com.enterprise_architecture.essential.importutility.ui.SystemSettingsComposer">					
+					<div>
+						<label id="configBackupLbl" value="Import Utility Backup and Restore" class="sectionLabel"/>
+					</div>
+					<separator spacing="5px"/>
+					<div>
+						<html><![CDATA[
+							<p class="large">Allows the configuration of the Essential Import Utility to be exported as a backup and restored to another instance or version.</p>
+							<p>
+								<strong>Export</strong> the configuration from the environment that you wish to migrate. This is delivered as a package that is downloaded and can be moved between systems.
+								<br/>
+								<strong>Import</strong> this configuration into a new deployment of the Essential Import Utility by uploading the configuration package using the "Import Configuration..." button.
+							</p>
+							<p>The configuration package consists the following components:</p>
+							<ul>
+								<li>Configuration of the import activities</li>
+								<li>The logs and history of all import activities that have been tested and executed on the source instance of Essential Import Utility</li>
+							</ul>]]>
+						</html>
+						<hlayout spacing="10px">
+							<button id="backupConfigBtn" label="Export Configuration"/>
+							<!-- tooltip="any"/> 
+								<popup id="any" width="300px">
+									<vbox> ZK simply rich.
+										<toolbarbutton label="ZK your killer Web application now!"/>
+									</vbox>
+								</popup>
+								-->
+							<button class="btn btn-default" id="uploadLocalProjectBtn" label="Import Configuration..." upload="true,maxsize=-1" onUpload="uploadConfigFile(event.getMedias());" tooltip="HELLO|"/>
+						</hlayout>
+					</div>
+					<separator spacing="20px"/>
+				</tabpanel>
+				<tabpanel>
+					<!--<vlayout>
+						<label class="large text-primary fontLight">ArchiMate XML Import</label>
+						<label>This service allows ArchiMate XML data to be imported into Essential Architecture Manager.</label>
+						<a href="archimate_import_eip.zul">
+							<button class="btn btn-default bottom-10" width="160px">ArchiMate XML Import</button>
+						</a>
+					</vlayout>-->
+					<vlayout>
+						<label class="large text-primary fontLight">Excel Import Service</label>
+						<label>The Excel Import Service allows automated integration of source content in Microsoft Excel or CSV formats into Essential Cloud.</label>
+						<a href="service_request_dup_form.zul">
+							<button class="btn btn-default bottom-10" width="160px">Excel Import Service</button>
+						</a>
+					</vlayout>
+					<separator spacing="15px"/>
+					<vlayout>
+						<label class="large text-primary fontLight">XML Import Service</label>
+						<label>The XML Import Service allows automated integration of source content in XML format into Essential Cloud.</label>
+						<a href="service_request_xml_dup_form.zul">
+							<button class="btn btn-default bottom-10" width="160px">XML Import Service</button>
+						</a>
+					</vlayout>
+
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		<include src="/essential_footer.zul"/>
+	</window>
+</zk>

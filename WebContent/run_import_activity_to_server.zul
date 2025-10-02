@@ -1,0 +1,75 @@
+<?page title="Run Local Excel Import" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+<window id="runServerImportWindow"
+	title="Run Server Import"
+	border="normal" width="730px"
+	apply="com.enterprise_architecture.essential.importutility.ui.RunImportActivityToServerComposer"
+	height="620px" closable="false">
+	<timer id="importStatusTimer" delay="1000" repeats="true" running="false"/>
+	<div style="margin:10px;">
+		<vlayout spacing="15px">
+			<div><hlayout><label style="font-size:14pt;font-weight:bold;" value="Run Import Activity: "/><label id="impActNameLbl" value="My Import Activity" style="font-size:14pt;"/></hlayout></div>
+			<div><label id="impActDescLbl" value="This is the description of My Import Activity" style="font-size:12pt;"/></div>
+			<hlayout spacing="30px">
+				<div><label style="font-size:8pt;font-weight:bold;" value="Last Modified: "/><label id="impActLastModLbl" value="23rd June 2011" style="font-size:8pt;"/> </div>
+				<div><label style="font-size:8pt;font-weight:bold;" value="Last Tested: "/><label id="impActLastTestLbl" value="Never" style="font-size:8pt;"/> </div>
+				<div><label style="font-size:8pt;font-weight:bold;" value="Last Executed: "/><label id="impActLastRunLbl" value="Never" style="font-size:8pt;"/> </div>
+			</hlayout>
+			<separator bar="true"/>
+			<div><hlayout><label style="font-size:11pt;font-weight:bold;" value="Target Environment: "/><label id="targetEnvNameLbl" value="A Target Env (LIVE)" style="font-size:11pt;"/></hlayout></div>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="6">
+					<label style="font-weight:bold;" value="1. Run Import"/>
+				</div>
+				<div hflex="14">
+					<hlayout spacing="20px"><button width="150px" id="runImportBtn" label="Run Import" /><!-- <checkbox id="backupCheckBox" label="Backup First?"/>  --><button width="160px" id="downloadImportScriptBtn" disabled="true" label="Download Import Script..." /></hlayout>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-middle" spacing ="30px">
+				<div hflex="6">
+					<label style="font-weight:bold;color:lightgrey;" value="2. Publish Repository (optional)"/>
+				</div>
+				<div hflex="14">
+						<hlayout spacing="20px"><button width="150px" id="publishRepBtn" disabled="true" autodisable="+self" label="Publish to Viewer" /><button width="150px" id="openViewerBtn" disabled="true" autodisable="+self" label="Open Viewer" /></hlayout>
+				</div>
+			</hlayout>
+			<separator bar="true"/>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="7">
+					<vlayout spacing ="20px">
+						<label style="font-weight:bold;font-size:11pt;" value="Messages"/>
+						<button width="150px" id="downloadMessagesBtn" disabled="true" autodisable="+self" label="Download Messages..." />
+					</vlayout>
+				</div>
+				<div hflex="14">
+						<textbox id="messagesTxtBox" rows="12" width="100%"/>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div align="center" hflex="1">				
+					<button id="closeBtn" width="70px"  label="Close"/>
+				</div>
+			</hlayout>
+		</vlayout>
+	</div>
+</window>
+</zk>

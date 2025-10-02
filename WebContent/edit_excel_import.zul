@@ -1,0 +1,146 @@
+<?page title="Essential Import Utility - Edit Excel Import" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014-2018 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<?page id="editExcelImportSpecPage" title="Essential Import Utility - Edit Excel Import Specification"?>
+	<window id="editExcelImportSpecWin" width="100%" apply="com.enterprise_architecture.essential.importutility.ui.ExcelImportSpecificationComposer">
+		<include src="/essential_header.zul"></include>
+		<separator spacing="10px"></separator>
+		<label class="pull-left xlarge text-primary fontLight">Edit Import Specification</label>
+		<div class="pull-right">
+			<button class="btn btn-secondary" id="closeBtn" width="80px" label="Close"></button>
+		</div>
+		<div class="clearfix"></div>
+		<separator spacing="15px"></separator>
+		<div class="importSpecEditorWrapper">
+			<borderlayout id="editExcelBorderLayout">
+
+				<west title="Excel Import Specification" width="45%" autoscroll="true" splittable="false" collapsible="true" apply="com.enterprise_architecture.essential.importutility.ui.ExcelImportSpecTreeComposer">
+
+					<div vflex="1" id="ExcelImportSpecDiv">
+						<vlayout>
+
+							<div style="position: fixed; z-index: 999; border-bottom: 1px solid #ccc; box-shadow: 0 1px 3px #ccc; width: 43%">
+								<hlayout style="background-color: #fff;">
+									<div hflex="4">
+										<menubar vflex="1" id="addElementMenubar" style="border:none;">
+											<menu label="Add...  ">
+												<menupopup>
+													<menuitem id="addGlobInstBtn" label="Global Instance"></menuitem>
+													<menuitem id="addWorksheetBtn" label="Worksheet"></menuitem>
+													<menuseparator></menuseparator>
+													<menuitem id="addDerivedInstBtn" label="Derived Instance"></menuitem>
+													<menuitem id="addSimpleInstBtn" label="Simple Instance"></menuitem>
+													<menuseparator></menuseparator>
+													<menuitem id="addDeleteDerivedInstBtn" label="Delete Derived Instance"></menuitem>
+													<menuitem id="addDeleteSimpleInstBtn" label="Delete Simple Instance"></menuitem>
+													<menuseparator></menuseparator>
+													<menuitem id="addSimpleSlotBtn" label="Simple Slot"></menuitem>
+													<menuitem id="addDerivedSimpleSlotBtn" label="Derived Simple Slot"></menuitem>
+													<menuitem id="addInstanceSlotBtn" label="Instance Slot"></menuitem>
+													<menuitem id="addPrimitiveSlotBtn" label="Primitive Slot"></menuitem>
+													<menuseparator></menuseparator>
+													<menuitem id="addRemoveInstanceSlotBtn" label="Remove Instance Slot"></menuitem>
+													<menuitem id="addDeleteInstanceSlotBtn" label="Delete Instance Slot"></menuitem>
+													<menuitem id="addRemoveAllInstanceSlotBtn" label="Remove All Slot Values"></menuitem>
+													<menuitem id="addDeleteAllInstanceSlotBtn" label="Delete All Slot Values"></menuitem>
+												</menupopup>
+											</menu>
+											<menuitem sclass="menuItemBorder" label="Delete" id="deleteBtn" style="border-left:1px solid #ddd"></menuitem>
+
+										</menubar>
+									</div>
+									<div hflex="8">
+										<menubar id="moveElementMenubar" style="border:none;">
+											<menuitem sclass="menuItemBorder pull-right" label="Move Down" id="moveDownBtn" style="border-left:1px solid #ddd"></menuitem>
+											<menuitem sclass="menuItemBorder pull-right" label="Move Up" id="moveUpBtn" style="border-left:1px solid #ddd"></menuitem>
+											<menuitem sclass="menuItemBorder pull-right" label="Paste" id="pasteBtn" style="border-left:1px solid #ddd"></menuitem>
+											<menuitem sclass="menuItemBorder pull-right" label="Copy" id="copyBtn" style="border-left:1px solid #ddd"></menuitem>
+										</menubar>
+									</div>
+
+								</hlayout>
+							</div>
+							<panel border="none">
+								<panelchildren style="overflow:auto;">
+									<tree id="importspectree" style="border:0px solid #fff; overflow-y: auto; overflow-x: hidden; margin-top: 40px" width="100%" zclass="z-dottree">
+										<treecols>
+											<treecol hflex="17"></treecol>
+											<treecol hflex="3"></treecol>
+										</treecols>
+									</tree>
+								</panelchildren>
+							</panel>
+						</vlayout>
+					</div>
+				</west>
+				<east id="eastpanel" title="Element Details" width="55%" flex="false" splittable="false" collapsible="true" autoscroll="true">
+					<div style="margin:10px;" visible="false">
+						<vlayout spacing="15px">
+							<hlayout sclass="z-valign-top" spacing="30px">
+								<div hflex="2">
+									<label class="strong" value="Import Activity Name"></label>
+								</div>
+								<div hflex="5">
+									<textbox hflex="1" constraint="no empty"></textbox>
+								</div>
+							</hlayout>
+							<hlayout sclass="z-valign-top" spacing="30px">
+								<div hflex="2">
+									<label class="strong" value="Import Activity Type"></label>
+								</div>
+								<div hflex="5">
+									<listbox mold="select" rows="1" width="100%">
+										<listitem label="" selected="true"></listitem>
+										<listitem label="Excel Import"></listitem>
+										<listitem label="Automated XML Import"></listitem>
+									</listbox>
+								</div>
+							</hlayout>
+							<hlayout sclass="z-valign-top" spacing="30px">
+								<div hflex="2">
+									<label class="strong" value="Description"></label>
+								</div>
+								<div hflex="5">
+									<textbox rows="6" width="100%"></textbox>
+								</div>
+							</hlayout>
+						</vlayout>
+					</div>
+				</east>
+				<!--
+				<south id="southpanel" title="Excel Spreadsheet" height="50%" flex="true" splittable="true" collapsible="true">
+					<div style="padding-top:5px;padding-left:8px;padding-right:8px;" height="340px">
+						<div>
+							<hlayout spacing="20px">
+								<label value="Select Worksheet: " style="font-weight:bold;font-size:10pt;" />
+								<combobox id="sheets" width="300px" />
+							</hlayout>
+						</div>
+						<separator spacing="8px" />
+						<spreadsheet id="spreadsheet" width="100%" height="85%" maxrows="1000" maxcolumns="80" />
+					</div>
+				</south> -->
+			</borderlayout>
+		</div>
+		<include src="/essential_footer.zul"></include>
+	</window>
+</zk>

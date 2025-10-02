@@ -1,0 +1,181 @@
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<div id="deleteDerivedInstanceDiv" style="margin:10px;" apply="com.enterprise_architecture.essential.importutility.ui.editors.DeleteDerivedInstanceEditorComposer">
+		<vlayout spacing="15px">
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Essential Class Name"/>
+				</div>
+				<div hflex="15">
+					<hlayout  spacing="15px" sclass="z-valign-top">
+						<combobox autodrop="true" hflex="7" id="classNameTxtBox" />
+						<button id="createIDTemplateBtn" hflex="3"  label="Create ID Template"/>
+						<button id="createNameTemplateBtn" hflex="3"  label="Create Name Template"/>
+					</hlayout>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Instance Matching Mode"/>
+				</div>
+				<div hflex="15">
+					<listbox id="matchingModeListBox" mold="select" rows="1" width="150px"/>
+				</div>
+			</hlayout>
+			<separator bar="true" spacing="15px"/>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Derived ID"/>
+				</div>
+				<div hflex="15" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Define the sequence of fixed strings and column references that will comprise the Instance ID"/>
+				</div>
+			</hlayout>
+			<vlayout spacing = "10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Fixed Text"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<textbox id="idFixedTxtBox"  width="275px"/>
+							<button id="addIDTxtBtn" width="70px"  label="Add Text"/>
+							<button id="addIDRefBtn" width="70px"  label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="ID Segments"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top" spacing="15px">
+							<listbox style="font-size:9pt;" id="idSegmentsListBox" rows="4" width="275px"/>
+							<vlayout>
+								<button id="idSegmentUpBtn" width="155px"  label="Move Segment Up"/>
+								<button id="idSegmentDownBtn" width="155px"  label="Move Segment Down"/>
+								<separator spacing="20px"/>
+								<button id="delIDSegBtn" width="155px"  label="Delete Segment"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+						<vlayout spacing="5px">							
+							<label style="font-style:italic;font-size:9pt;" value="Column Reference"/>
+							<separator spacing="18px"/>
+						</vlayout>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<vlayout spacing="5px">
+								<textbox id="idColumnTxtBox"  width="50px"/>
+								<label value="Ref" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="idPreDelimTxtBox"  width="50px"/>
+								<label value="Pre-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="idPostDelimTxtBox"  width="50px"/>
+								<label value="Post-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">							
+								<button id="setIDRefBtn" width="70px"  label="Set Ref"/>
+								<separator spacing="15px"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="ID Format"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top">
+							<label style="font-weight:bold;font-style:italic;" id="idFormatLabel"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<separator bar="true" spacing="15px"/>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Derived Instance Name"/>
+				</div>
+				<div hflex="15" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Define the sequence of fixed strings and column references that will comprise the Instance Name"/>
+				</div>
+			</hlayout>
+			<vlayout spacing = "10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Fixed Text"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<textbox id="nameFixedTxtBox"  width="275px"/>
+							<button id="addNameTxtBtn" width="70px"  label="Add Text"/>
+							<button id="addNameRefBtn" width="70px"  label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Name Segments"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top" spacing="15px">
+							<listbox style="font-size:9pt;" id="nameSegmentsListBox" rows="4" width="275px"/>
+							<vlayout>
+								<button id="nameSegmentUpBtn" width="155px"  label="Move Segment Up"/>
+								<button id="nameSegmentDownBtn" width="155px"  label="Move Segment Down"/>
+								<separator spacing="20px"/>
+								<button id="delNameSegBtn" width="155px"  label="Delete Segment"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+						<vlayout spacing="5px">							
+							<label style="font-style:italic;font-size:9pt;" value="Column Reference"/>
+							<separator spacing="18px"/>
+						</vlayout>				
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<vlayout spacing="5px">								
+								<textbox id="nameColumnTxtBox"  width="50px"/>
+								<label value="Ref" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="namePreDelimTxtBox"  width="50px"/>
+								<label value="Pre-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="namePostDelimTxtBox"  width="50px"/>
+								<label value="Post-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">					
+								<button id="setNameRefBtn" width="70px"  label="Set Ref"/>
+								<separator spacing="15px"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Name Format"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top">
+							<label style="font-weight:bold;font-style:italic;" id="nameFormatLabel"/>
+						</hlayout>
+					</div>
+				</hlayout>
+			</vlayout>
+			</vlayout>
+		</vlayout>
+	</div>
+</zk>

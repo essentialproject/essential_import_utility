@@ -1,0 +1,67 @@
+<?page title="Essential Import Utility" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014-2015 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<script type="text/javascript" src="/js/importutility_uifunctions.js"></script>
+	<window id="loginWindow" apply="com.enterprise_architecture.essential.importutility.ui.LoginComposer" width="100%" height="500px" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+		<include src="/essential_header_eip.zul"></include>
+		<div class="loginLeft" />
+		<div class="loginRight">
+					<vlayout spacing="15px">
+						<label style="font-weight:bold; font-size: 2em; font-weight: 300;" value="Login"></label>
+						<label style="font-weight:bold;" value="Please enter login details"/>
+						<hlayout sclass="z-valign-top" spacing="30px">
+							<div hflex="1">
+								<label style="font-weight:bold;" value="Tenant"></label>
+							</div>
+							<div hflex="15">
+								<textbox id="tenantTxtBox" height="20px" width="300px"></textbox>
+							</div>
+						</hlayout>
+						<hlayout sclass="z-valign-top" spacing="30px">
+							<div hflex="1">
+								<label style="font-weight:bold;" value="Email"></label>
+							</div>
+							<div hflex="15">
+								<textbox id="emailTxtBox" height="20px" width="300px"></textbox>
+							</div>
+						</hlayout>
+						<hlayout sclass="z-valign-top" spacing="30px">
+							<div hflex="1">
+								<label style="font-weight:bold;" value="Password"></label>
+							</div>
+							<div hflex="15">
+								<textbox id="passwordTxtBox" height="20px" width="300px" type="password"></textbox>
+							</div>
+						</hlayout>
+
+						<hlayout>
+							<div hflex="1">
+								<button id="loginBtn" width="400px"  label="Login"></button>
+							</div>
+						</hlayout>
+					</vlayout>
+				</div>
+
+
+		<include src="/essential_footer.zul"></include>
+	</window>
+</zk>

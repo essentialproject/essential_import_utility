@@ -1,0 +1,43 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<window id="dupGeneratorDialog" width="600px" title="Generate Import File" closable="false" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+		<timer id="dupProgressTimer" delay="5000" repeats="true" running="false"/>
+		<vlayout spacing="10px">
+			<div hflex="1">
+				<label id="dupProgressLabel" class="strong" value="Generating Import DUP Script..."/>
+			</div>
+			<progressmeter hflex="1" id="dupProgressMeter" value="25"/>
+			<label class="strong" value="Messages:"/>
+			<textbox hflex="1" id="dupMessagesTxtBx" rows="16" readonly="true" style="overflow: auto"/>
+			<div>
+				<button class="pull-left" id="cancelDUPBtn" label="Cancel"/>
+				<div class="pull-right">
+					<button class="btn btn-success right-10" id="downloadDUPBtn" disabled="true" label="Download DUP File"/>
+					<button class="btn btn-danger" id="closeDUPBtn" disabled="true" label="Close"/>
+				</div>
+			</div>
+
+
+		</vlayout>
+
+	</window>
+</zk>

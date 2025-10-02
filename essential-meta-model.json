@@ -1,0 +1,34 @@
+{"metaModel": [
+    {
+        "metaClass": "EA_Class",
+        "isAbstract": true,
+        "slots": [
+            {
+                "name": "name",
+                "type": "String"
+            },
+            {
+                "name": "description",
+                "type": "String"
+            },
+            {
+                "name": "costs_for_element",
+                "type": "Instance",
+                "allowedClasses": ["Cost"]
+            },
+            {
+                "name": "stakeholders",
+                "type": "Instance",
+                "allowedClasses": [
+                    "ACTOR_TO_ROLE_RELATION",
+                    "Business_Role"
+                ]
+            }
+        ]
+    },
+    {
+        "metaClass": "Application_Layer",
+        "isAbstract": true,
+        "slots": []
+    }
+]}

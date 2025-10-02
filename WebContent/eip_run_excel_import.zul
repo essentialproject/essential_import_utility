@@ -1,0 +1,191 @@
+<?page title="Run Excel Import" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<zscript deferred="true"><![CDATA[
+    import org.zkoss.util.media.Media;
+    import org.apache.commons.io.IOUtils;
+ 
+    public void uploadSpreadsheet(Media[] spreadsheet) {
+        if (spreadsheet.length > 0) {
+        	// System.out.println("File Uploaded: " + spreadsheet[0].getContentType());
+        	Media ssFile = spreadsheet[0];
+        	
+        	if((!ssFile.getName().endsWith("xls")) && (!ssFile.getName().endsWith("xlsx"))) {
+        		try {
+	        		Messagebox.show("A Microsft Excel file must be selected", "Invalid File Type", Messagebox.OK, Messagebox.ERROR);
+	        		return;
+        		} catch(Exception e) {
+        			e.printStackTrace();
+        		}
+        	}
+        	
+        	runExcelImportWin.setAttribute("uploadedSpreadsheet", ssFile);
+        	Label ssNameLbl = (Label) runExcelImportWin.getFellow("ssNameLbl");
+        	ssNameLbl.setValue(ssFile.getName());
+        	Events.sendEvent("onOK", ssNameLbl, null);
+        }
+    }
+    
+    
+    public void uploadImportSpec(Media[] importSpec) {
+    	
+        if (importSpec.length > 0) {
+        	runExcelImportWin.setAttribute("importSpecUploading", new Boolean(true));
+        	Media impSpecFile = importSpec[0];
+        	
+        	
+        	if(!impSpecFile.getName().endsWith("xml") &&
+        	   !impSpecFile.getName().endsWith("zip")) 
+        	{
+        		try {
+	        		Messagebox.show("A valid XML or ZIP must be selected", "Invalid File", Messagebox.OK, Messagebox.ERROR);
+	        		return;
+        		} catch(Exception e) {
+        			e.printStackTrace();
+        		}
+        	}   
+        	   	
+        	
+        	runExcelImportWin.setAttribute("uploadedImportSpec", impSpecFile);
+        	Label impActNameLbl = (Label) runExcelImportWin.getFellow("impActNameLbl");
+        	Events.sendEvent("onOK", impActNameLbl, null);
+        	
+        }
+    }
+   
+]]></zscript>
+	<window width="100%" id="runExcelImportWin" apply="com.enterprise_architecture.essential.importutility.ui.RunExcelImportComposer">
+		<include src="/essential_header.zul"/>
+		<separator spacing="10px"/>
+		<timer id="dupStatusTimer" delay="1000" repeats="true" running="false"/>
+		<div>
+			<div class="pull-left" width="80%">
+				<label class="pageLabel textColour1" value="Import Activity: "/>
+				<label id="impActNameLbl" value="My Import Activity" class="pageLabel"/>
+			</div>
+			<div align="right">
+				<button id="closePage" label="Close" class="btn btn-secondary" width="80px;"/>
+			</div>
+		</div>
+		<div class="clear"/>
+
+		<div width="80%">
+			<label id="impActDescLbl" value="This is the description of My Import Activity" class="large"/>
+		</div>
+
+		<separator spacing="5px"/>
+
+		<div class="top-5 pull-left">
+			<hlayout spacing="15px">
+				<div>
+					<label class="strong" value="Last Modified: "/>
+					<label id="impActLastModLbl" value="23rd June 2011" class="small"/>
+				</div>
+				<div>
+					<label class="strong" value="Last Generated: "/>
+					<label id="impActLastTestLbl" value="Never" class="small"/>
+				</div>
+			</hlayout>
+		</div>
+		<div class="clearfix"></div>
+		<div class="pull-right">
+			<hlayout spacing="10px">
+				<button id="editImportSpecBtn" label="Edit Import Specification..."/>
+				<button id="downloadImportSpecBtn" label="Download Import Specification..."/>
+				<button class="btn btn-default" id="uploadImportSpecBtn" label="Upload Import Specification..." upload="true,maxsize=-1" onUpload="uploadImportSpec(event.getMedias());"/>
+			</hlayout>
+		</div>
+
+		<div class="clear"/>
+		<separator spacing="15px"/>
+
+		<panel border="normal">
+			<panelchildren>
+				<div>
+					<hlayout>
+						<div>
+							<hlayout spacing="10px">
+								<label value="1. Source Spreadsheet" class="sectionLabel"/>
+							</hlayout>
+						</div>
+					</hlayout>
+					<separator spacing="10px"/>
+					<hlayout>
+						<div style="border:solid 1px #aaa; padding:5px 30px 5px 10px; margin-right:10px;">
+							<label id="ssNameLbl"/>
+						</div>
+						<!--<button id="previewSSBtn" label="Preview Spreadsheet..."/>-->
+						<button id="downloadSSBtn" label="Download Spreadsheet..."/>
+						<button class="btn btn-default" id="updateSSBtn" label="Upload Spreadsheet..." upload="true,maxsize=-1" onUpload="uploadSpreadsheet(event.getMedias());"/>
+
+					</hlayout>
+					<separator spacing="10px"/>
+					<!-- <div>View Worksheet: <combobox id="sheets"/></div>
+								<separator spacing="8px"/>
+								<div>
+		               				<spreadsheet id="spreadsheet" width="98%" height="400px" maxrows="1000" maxcolumns="80"/>
+		               			</div>  -->
+				</div>
+			</panelchildren>
+		</panel>
+		
+		<panel border="normal">
+			<panelchildren>
+				<div>
+					<hlayout spacing="10px">
+						<label value="2. Select Worksheets" class="sectionLabel"/>
+						<!-- <button  width="150px" height="25px" id="configWorksheetsBtn" label="By Inspection..."/> -->
+					</hlayout>
+					<separator spacing="10px"/>
+					<grid width="99%" height="350px" id="worksheetGrid">
+						<columns sizable="true">
+							<column width="5%" label="Import?"/>
+							<column width="30%" label="Worksheet" sort="auto"/>
+							<column width="49%" label="Description"/>
+							<column width="8%" label="Start Row"/>
+							<column width="8%" label="End Row"/>
+						</columns>
+						<rows></rows>
+					</grid>
+				</div>
+			</panelchildren>
+		</panel>
+
+		<panel border="normal">
+			<panelchildren>
+				<div>
+					<hlayout spacing="10px">
+						<label value="3. Generate Data Update Pack" class="sectionLabel"/>
+					</hlayout>
+					<separator spacing="10px"/>
+					<hlayout spacing="30px">
+						<button id="generateDUPBtn" label="Generate DUP..."/>
+					</hlayout>
+				</div>
+				<div class="clearfix"></div>
+			</panelchildren>
+		</panel>
+
+
+		<include src="/essential_footer.zul"/>
+	</window>
+</zk>

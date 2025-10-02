@@ -1,0 +1,55 @@
+<?page title="Import Activity" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<window id="impActWindow" title="New Import Activity" border="normal" width="700px" closable="true" apply="com.enterprise_architecture.essential.importutility.ui.ImportActivityFromTemplateComposer">
+		<vlayout spacing="10px">
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Import Activity Template"/>
+				</div>
+				<div hflex="5">
+					<listbox id="impActTempListBox" mold="select" rows="1" width="100%"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Import Activity Name"/>
+				</div>
+				<div hflex="5">
+					<textbox id="impActNameTxtBox" hflex="1" constraint="no empty"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top">
+				<div hflex="3">
+					<label class="strong" value="Description"/>
+				</div>
+				<div hflex="5">
+					<textbox id="impActDescTxtBox" rows="6" width="100%"/>
+				</div>
+			</hlayout>
+			<div align="right" class="top-15">
+				<button class="btn-success right-10" id="okBtn" width="80px" label="OK" autodisable="+self"/>
+				<button class="btn-danger" id="cancelBtn" width="80px" label="Cancel"/>
+			</div>
+		</vlayout>
+
+	</window>
+</zk>

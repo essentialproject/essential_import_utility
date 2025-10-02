@@ -1,0 +1,47 @@
+<?page title="Essential Import Utility" contentType="text/html;charset=UTF-8"?>
+<!-- 
+* Copyright (c)2014-2017 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<?link rel="shortcut icon" type="image/x-icon" href="img/essential.ico"?>
+	<script type="text/javascript" src="/js/importutility_uifunctions.js"/>
+	<script type="text/javascript" src="/js/samlLoginJS.js"/>
+	<window id="loginWindow"
+		apply="com.enterprise_architecture.essential.importutility.ui.RedirectToAuthnServerComposer"
+		width="100%"
+		height="100%"
+		xmlns:h="http://www.w3.org/1999/xhtml"
+		xmlns:zk="http://www.zkoss.org/2005/zk">
+		<include src="/essential_header.zul" />
+		<div class="loginLeft" />
+		<div class="loginRight">
+			<vlayout spacing="15px">
+				<label style="font-weight:bold; font-size: 2em; font-weight: 300;" value="Redirecting to Authentication Server"></label>
+				<hlayout>
+					<div hflex="1">
+						<button id="redirectBtn" width="400px"  label="Redirect"/>
+					</div>
+				</hlayout>
+				
+			</vlayout>
+		</div>
+		
+		<include src="/essential_footer.zul" />
+	</window>
+</zk>

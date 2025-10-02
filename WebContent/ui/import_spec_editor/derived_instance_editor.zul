@@ -1,0 +1,250 @@
+<!-- 
+* Copyright (c)2015 Enterprise Architecture Solutions ltd.
+* This file is part of Essential Architecture Manager, 
+* the Essential Architecture Meta Model and The Essential Project.
+*
+* Essential Architecture Manager is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Essential Architecture Manager is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Essential Architecture Manager.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+ 
+ <?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<div id="derivedInstanceDiv" style="margin:10px;" apply="com.enterprise_architecture.essential.importutility.ui.editors.DerivedInstanceEditorComposer">
+		<vlayout spacing="15px">
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Instance Variable Name" tooltip="varName"/>
+				</div>
+				<div hflex="15">
+					<textbox id="varNameTxtBox"  hflex="1"/>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Essential Class Name" tooltip="className"/>
+				</div>
+				<div hflex="15">
+					<combobox autodrop="true" id="classNameTxtBox" hflex="1" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div hflex="5"></div>
+				<div hflex="15">
+					<hlayout spacing="15px" sclass="z-valign-top">
+						<button id="createIDTemplateBtn" width="180px"  label="Create ID Template"/>
+						<button id="createNameTemplateBtn" width="180px"  label="Create Name Template"/>
+					</hlayout>
+				</div>
+			</hlayout>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Instance Match Mode" tooltip="matchMode"/>
+				</div>
+				<div hflex="15">
+					<listbox id="matchingModeListBox" mold="select" rows="1" width="150px"/>
+				</div>
+			</hlayout>
+			<separator bar="true" spacing="15px"/>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Derived ID" tooltip="derivedID"/>
+				</div>
+				<div hflex="15" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Define the sequence of fixed strings and column references that will comprise the Instance ID"/>
+				</div>
+			</hlayout>
+			<vlayout spacing = "10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Fixed Text"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<textbox id="idFixedTxtBox"  width="275px"/>
+							<button id="addIDTxtBtn" width="70px"  label="Add Text"/>
+							<button id="addIDRefBtn" width="70px"  label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="ID Segments"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top" spacing="15px">
+							<listbox style="font-size:9pt;" id="idSegmentsListBox" rows="4" width="275px"/>
+							<vlayout>
+								<button id="idSegmentUpBtn" width="155px"  label="Move Segment Up"/>
+								<button id="idSegmentDownBtn" width="155px"  label="Move Segment Down"/>
+								<separator spacing="20px"/>
+								<button id="delIDSegBtn" width="155px"  label="Delete Segment"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+						<vlayout spacing="5px">							
+							<label style="font-style:italic;font-size:9pt;" value="Column Reference"/>
+							<separator spacing="18px"/>
+						</vlayout>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<vlayout spacing="5px">
+								<textbox id="idColumnTxtBox"  width="50px"/>
+								<label value="Ref" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="idPreDelimTxtBox"  width="50px"/>
+								<label value="Pre-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="idPostDelimTxtBox"  width="50px"/>
+								<label value="Post-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">							
+								<button id="setIDRefBtn" width="70px"  label="Set Ref"/>
+								<separator spacing="15px"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="ID Format"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top">
+							<label style="font-weight:bold;font-style:italic;" id="idFormatLabel"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<separator bar="true" spacing="15px"/>
+			<hlayout sclass="z-valign-top" spacing ="30px">
+				<div hflex="5">
+					<label style="font-weight:bold;" value="Derived Instance Name" tooltip="derivedName"/>
+				</div>
+				<div hflex="15" style="word-wrap:break-word;">
+					<label style="font-weight:oblique;" value="Define the sequence of fixed strings and column references that will comprise the Instance Name"/>
+				</div>
+			</hlayout>
+			<vlayout spacing = "10px" sclass="z-halign-right">
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Fixed Text"/>
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<textbox id="nameFixedTxtBox"  width="275px"/>
+							<button id="addNameTxtBtn" width="70px"  label="Add Text"/>
+							<button id="addNameRefBtn" width="70px"  label="Add Ref"/>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Name Segments"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top" spacing="15px">
+							<listbox style="font-size:9pt;" id="nameSegmentsListBox" rows="4" width="275px"/>
+							<vlayout>
+								<button id="nameSegmentUpBtn" width="155px"  label="Move Segment Up"/>
+								<button id="nameSegmentDownBtn" width="155px"  label="Move Segment Down"/>
+								<separator spacing="20px"/>
+								<button id="delNameSegBtn" width="155px"  label="Delete Segment"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+						<vlayout spacing="5px">							
+							<label style="font-style:italic;font-size:9pt;" value="Column Reference"/>
+							<separator spacing="18px"/>
+						</vlayout>				
+					</div>
+					<div hflex="15">
+						<hlayout  spacing="15px" sclass="z-valign-top">
+							<vlayout spacing="5px">								
+								<textbox id="nameColumnTxtBox"  width="50px"/>
+								<label value="Ref" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="namePreDelimTxtBox"  width="50px"/>
+								<label value="Pre-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">								
+								<textbox id="namePostDelimTxtBox"  width="50px"/>
+								<label value="Post-Delim" style="font-size:8pt"/>
+							</vlayout>
+							<vlayout spacing="5px">					
+								<button id="setNameRefBtn" width="70px"  label="Set Ref"/>
+								<separator spacing="15px"/>
+							</vlayout>
+						</hlayout>
+					</div>
+				</hlayout>
+				<hlayout sclass="z-valign-top" spacing ="30px">
+					<div hflex="5" align="right" style="margin-right:10px;">
+							<label style="font-style:italic;font-size:9pt;" value="Name Format"/>
+					</div>
+					<div hflex="15">
+						<hlayout  sclass="z-valign-top">
+							<label style="font-weight:bold;font-style:italic;" id="nameFormatLabel"/>
+						</hlayout>
+					</div>
+				</hlayout>
+			</vlayout>
+			</vlayout>
+		</vlayout>
+		<popup id="varName" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Instance Variable Name</label>
+			</div>
+			<div>A unique name for the variable in the context of this worksheet in the selected import specification. This is used when building relationships between instance throughout the worksheet.</div>
+		</popup>
+		<popup id="className" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Essential Class Name</label>
+			</div>
+			<div>Defines the type of instance this column contains.</div>
+		</popup>
+		<popup id="matchMode" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Instance Match Mode</label>
+			</div>
+			<div>Method by which the instance the spreadsheet are matched to those in the target repository.</div>
+			<div><label style="font-weight: bold">ByID</label> – matches by a unique identifier defined in the spreadsheet which can be different to the internal repository ID. Useful when the name of the instance in the spreadsheet needs to change. Note: these IDs must not be reused.</div>
+			<div><label style="font-weight: bold">ByName</label> – matches by the name of the object defined in the spreadsheet. Note: if the name of the object changes, an additional object will be created and two objects will exist in the repository.</div>
+			<div><label style="font-weight: bold">ByInternalID</label> – matches by internal repository ID. Typically used when an export of the repository has been created and you intend to re-import the content with additional changes. Matches by repository ID if exists or generates a new repository ID for objects that do not match.</div>
+			<div><label style="font-weight: bold">New</label> – forces the creation on a new object on each import regardless of whether a similar or identical object already exists.</div>
+		</popup>
+		<popup id="derivedID" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Derived ID</label>
+			</div>
+			<div>The combination of text strings and columns in the source worksheet that will form the unique ID of the instance used for matching.</div>
+			<div>If matching <label style="font-weight:bold;">ByID</label> then this would be the ID column.</div>
+			<div>If matching <label style="font-weight:bold;">ByName</label> then this would look the same as the Derived Name section below.</div>
+			<div>If matching <label style="font-weight:bold;">ByInternalID</label> then this would be the column which contains the repository internal IDs.</div>
+		</popup>
+		<popup id="derivedName" width="350px">
+			<div>
+				<label style="font-weight: bold; text-transform: uppercase;">Instance Name Column</label>
+			</div>
+			<div>The combination of text strings and columns in the source worksheet that will form the name of the instance.</div>
+		</popup>
+	</div>
+</zk>

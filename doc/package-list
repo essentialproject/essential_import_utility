@@ -1,0 +1,16 @@
+com.enterprise_architecture.easdatamanagement.model
+com.enterprise_architecture.essential.importutility.data.common
+com.enterprise_architecture.essential.importutility.data.common.script
+com.enterprise_architecture.essential.importutility.data.global
+com.enterprise_architecture.essential.importutility.data.importspec
+com.enterprise_architecture.essential.importutility.data.importspec.script
+com.enterprise_architecture.essential.importutility.data.user
+com.enterprise_architecture.essential.importutility.integration
+com.enterprise_architecture.essential.importutility.service
+com.enterprise_architecture.essential.importutility.service.importcallback
+com.enterprise_architecture.essential.importutility.ui
+com.enterprise_architecture.essential.importutility.ui.editors
+com.enterprise_architecture.essential.importutility.ui.treemodel
+com.enterprise_architecture.essential.importutility.utils
+com.enterprise_architecture.essential.report.security
+org.enterprise_architecture.essential.vieweruserdata
