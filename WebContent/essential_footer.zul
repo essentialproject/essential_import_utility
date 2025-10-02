@@ -1,0 +1,17 @@
+<?script src="/js/jquery-3.6.0.min.js" ?>
+<zk>
+	<div class="clearfix"></div>
+	<div class="footerContainer">
+		<div class="footerLeft">
+			<label class="small strong" value="Version 2.9.2"/>
+		</div>
+		<div class="footerLeft">
+			<label class="small"  value="Powered by"/>
+			<a sclass="footerLink small" href="http://www.enterprise-architecture.org" label="The Essential Project"/>
+			<label class="small" value=", the free open-source Enterprise Architecture Management Platform."/>
+		</div>
+		<div class="footerRight">
+			<label class="small" value="Copyright &#169;2009-2024 Enterprise Architecture Solutions Ltd."/>
+		</div>
+	</div>
+</zk>
