@@ -22,7 +22,7 @@
  */
 package com.enterprise_architecture.essential.report.security;
 
-import static org.neo4j.driver.v1.Values.parameters;
+import static org.neo4j.driver.Values.parameters;
 
 import java.io.StringWriter;
 import java.util.Map;
@@ -38,9 +38,9 @@ import org.enterprise_architecture.essential.vieweruserdata.ClearanceList;
 import org.enterprise_architecture.essential.vieweruserdata.ClearanceType;
 import org.enterprise_architecture.essential.vieweruserdata.User;
 import org.enterprise_architecture.essential.vieweruserdata.ViewerURLList;
-import org.neo4j.driver.v1.Record;
-import org.neo4j.driver.v1.Session;
-import org.neo4j.driver.v1.StatementResult;
+import org.neo4j.driver.Record;
+import org.neo4j.driver.Result;
+import org.neo4j.driver.Session;
 
 import com.enterprise_architecture.easdatamanagement.model.UserProfile;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -157,7 +157,7 @@ public class UserDataManager
 	protected void getUserFirstNameAndLastName(String theGraphUserId, Session theGraphDBSession)
 	{		
 		// Query the GraphDB, using theGraphDBSession
-		StatementResult aResult = theGraphDBSession.run("MATCH (u:User) WHERE u.uuid={userUuid} RETURN u.firstName as firstName, u.lastName as lastName", 
+		Result aResult = theGraphDBSession.run("MATCH (u:User) WHERE u.uuid=$userUuid RETURN u.firstName as firstName, u.lastName as lastName", 
 													  	parameters("userUuid", theGraphUserId));
 		
 		// Read the result set to validate user has permission to access the repository
@@ -181,8 +181,8 @@ public class UserDataManager
 	protected void getViewersForUser(String theGraphUserId, Session theGraphDBSession)
 	{
 		// Query the Graph DB, using theGraphDBSession
-		StatementResult aResult = theGraphDBSession.run("MATCH (u:User)-[:HAS_VIEWER_SETTINGS]->(vs:ViewerSettings{status:'ACTIVE'})-[:BELONGS_TO_VIEWER]->(v:Viewer) " + 
-													   "WHERE u.uuid={userUuid} " +
+		Result aResult = theGraphDBSession.run("MATCH (u:User)-[:HAS_VIEWER_SETTINGS]->(vs:ViewerSettings{status:'ACTIVE'})-[:BELONGS_TO_VIEWER]->(v:Viewer) " + 
+													   "WHERE u.uuid=$userUuid " +
 													   "RETURN v.url AS url", 
 													   parameters("userUuid", theGraphUserId));
 
@@ -206,8 +206,8 @@ public class UserDataManager
 	protected void getClearanceForUser(String theGraphUserId, Session theGraphDBSession)
 	{
 		// Query the GraphDB to get all the clearances that this user has for all repositories
-		StatementResult aResult = theGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings)-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
-														"WHERE u.uuid={userUuid} " +
+		Result aResult = theGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings)-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
+														"WHERE u.uuid=$userUuid " +
 														"RETURN rs.readClearance as readClearance, rs.editClearance as editClearance, r.uuid as repoId",
 														parameters("userUuid", theGraphUserId));
 		

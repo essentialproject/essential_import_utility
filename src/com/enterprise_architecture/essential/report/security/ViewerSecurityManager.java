@@ -32,7 +32,7 @@
 package com.enterprise_architecture.essential.report.security;
 
 
-import static org.neo4j.driver.v1.Values.parameters;
+import static org.neo4j.driver.Values.parameters;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -58,12 +58,12 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.enterprise_architecture.essential.vieweruserdata.User;
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.GraphDatabase;
-import org.neo4j.driver.v1.Record;
-import org.neo4j.driver.v1.Session;
-import org.neo4j.driver.v1.StatementResult;
+import org.neo4j.driver.AuthTokens;
+import org.neo4j.driver.Driver;
+import org.neo4j.driver.GraphDatabase;
+import org.neo4j.driver.Record;
+import org.neo4j.driver.Result;
+import org.neo4j.driver.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -506,8 +506,8 @@ public class ViewerSecurityManager
 		Session aGraphDBSession = getGraphDBDriver().session();
 		
 		// Query the GraphDB
-		StatementResult aResult = aGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings{status:'ACTIVE'})-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
-													  "WHERE u.uuid={userUuid} AND r.uuid={repositoryUuid} " +
+		Result aResult = aGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings{status:'ACTIVE'})-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
+													  "WHERE u.uuid=$userUuid AND r.uuid=$repositoryUuid " +
 													  "RETURN r.name AS repositoryName", 
 													  parameters("userUuid", theUserURI, "repositoryUuid", theRepositoryURI));
 		
@@ -551,8 +551,8 @@ public class ViewerSecurityManager
 		Session aGraphDBSession = getGraphDBDriver().session();
 		
 		// Query the GraphDB
-		StatementResult aResult = aGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings{status:'ACTIVE'})-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
-													  "WHERE u.uuid={userUuid} AND r.uuid={repositoryUuid} " +
+		Result aResult = aGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings{status:'ACTIVE'})-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
+													  "WHERE u.uuid=$userUuid AND r.uuid=$repositoryUuid " +
 													  "RETURN r.name AS repositoryName, exists((rs)-[:BELONGS_TO_REPOSITORY_ROLE]->(:RepositoryRole{name:'publisher'})) AS hasRole", 
 													  parameters("userUuid", theUserURI, "repositoryUuid", theRepositoryURI));
 		
@@ -590,8 +590,8 @@ public class ViewerSecurityManager
 		Session aGraphDBSession = getGraphDBDriver().session();
 		
 		// Query the GraphDB
-		StatementResult aResult = aGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings{status:'ACTIVE'})-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
-													  "WHERE u.uuid={userUuid} " +
+		Result aResult = aGraphDBSession.run("MATCH (u:User)-[:HAS_REPOSITORY_SETTINGS]->(rs:RepositorySettings{status:'ACTIVE'})-[:BELONGS_TO_REPOSITORY]->(r:Repository) " +
+													  "WHERE u.uuid=$userUuid " +
 													  "RETURN r.name AS repositoryName, exists((rs)-[:BELONGS_TO_REPOSITORY_ROLE]->(:RepositoryRole{name:'instanceEditor'})) AS hasRole", 
 													  parameters("userUuid", theUserURI));
 
@@ -651,8 +651,8 @@ public class ViewerSecurityManager
 			itsLog.debug("ViewerSecurityManager.isUserSystemAdminForViewer(): Test user authZ-ised with account = {}", theAccount);
 			
 			// Query the GraphDB
-			StatementResult aResult = aGraphDBSession.run("MATCH (u:User) " +
-														  "WHERE u.uuid={userUuid} " +
+			Result aResult = aGraphDBSession.run("MATCH (u:User) " +
+														  "WHERE u.uuid=$userUuid " +
 														  "RETURN u.firstName AS firstName, u.lastName AS lastName, exists((u)-[:BELONGS_TO_SYSTEM_ROLE]->(:SystemRole{name:'systemAdmin'})) AS hasRole", 
 														  parameters("userUuid", anAccountURI));
 
@@ -857,8 +857,8 @@ public class ViewerSecurityManager
 	private String getAPIKeyForTenant(String theTenantId, Session theGraphDBSession)
 	{
 		String anAPIKey = null;
-		StatementResult aResult = theGraphDBSession.run(
-				"MATCH (p:Platform)-[:HAS_TENANT]->(t:Tenant) WHERE t.uuid={tenantId} RETURN t.apiKey as apiKey",
+		Result aResult = theGraphDBSession.run(
+				"MATCH (p:Platform)-[:HAS_TENANT]->(t:Tenant) WHERE t.uuid=$tenantId RETURN t.apiKey as apiKey",
 				parameters("tenantId", theTenantId));
 		
 		// Read the result set to find the Graph User Id in the Graph
